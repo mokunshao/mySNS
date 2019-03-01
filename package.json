@@ -1,0 +1,8 @@
+{
+  "name": "mySNS",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/mokunshao/mySNS.git",
+  "author": "mokunshao <1627510957@qq.com>",
+  "license": "MIT"
+}
