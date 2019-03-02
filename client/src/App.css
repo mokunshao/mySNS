@@ -2,11 +2,25 @@ img {
   width: 100%;
 }
 
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.App>main{
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
 .landing {
   position: relative;
-  background: url('./components/img/showcase.jpg') no-repeat center;
+  background: url('img/showcase.jpg') no-repeat center;
   background-size: cover;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   margin-top: -24px;
   margin-bottom: -50px;
 }
