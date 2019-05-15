@@ -1,5 +1,6 @@
+$baseColor: #4a76a8;
 .navBar {
-  background: #4a76a8;
+  background: $baseColor;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   color: #fff;
@@ -12,14 +13,14 @@
       display: inline-block;
       padding: 10px;
     }
-    .box {
+    .actions {
       display: inline-block;
       .button {
         display: inline-block;
         padding: 10px;
         cursor: pointer;
         &:hover {
-          background: darken($color: #4a76a8, $amount: 10);
+          background: darken($color: $baseColor, $amount: 10%);
         }
       }
     }
