@@ -20,7 +20,7 @@ $baseColor: #4a76a8;
         padding: 10px;
         cursor: pointer;
         &:hover {
-          background: darken($color: $baseColor, $amount: 10%);
+          background: darken($color: $baseColor, $amount: 5%);
         }
       }
     }
