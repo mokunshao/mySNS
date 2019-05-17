@@ -1,4 +1,11 @@
-.app{
+.app {
   background: #edeef0;
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  .container {
+    flex: 1;
+    width: 960px;
+    margin: 0 auto;
+  }
 }

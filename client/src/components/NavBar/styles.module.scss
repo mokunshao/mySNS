@@ -4,6 +4,7 @@ $baseColor: #4a76a8;
   font-weight: 700;
   -webkit-font-smoothing: antialiased;
   color: #fff;
+  font-size: 12.5px;
   .container {
     width: 960px;
     margin: 0 auto;
@@ -11,13 +12,15 @@ $baseColor: #4a76a8;
     justify-content: space-between;
     .logo {
       display: inline-block;
-      padding: 10px;
+      padding: 12px;
     }
     .actions {
       display: inline-block;
       .button {
+        text-decoration: none;
+        color: #fff;
         display: inline-block;
-        padding: 10px;
+        padding: 12px;
         cursor: pointer;
         &:hover {
           background: darken($color: $baseColor, $amount: 5%);
