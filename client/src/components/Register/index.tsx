@@ -6,13 +6,13 @@ export default function Register(): React.ReactElement {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  interface Itarget {
+  interface Iinput {
     target: {
       name: String;
       value: SetStateAction<string>;
     };
   }
-  function handleChange(e: React.ChangeEvent & Itarget):void {
+  function handleChange(e: React.ChangeEvent & Iinput):void {
     switch (e.target.name) {
       case "username":
         setUsername(e.target.value);
