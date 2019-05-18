@@ -1,5 +1,6 @@
 import React, { useState, SetStateAction } from "react";
 import styles from "./styles.module.scss";
+import axios from "axios";
 
 export default function Register(): React.ReactElement {
   const [username, setUsername] = useState("");
@@ -42,7 +43,11 @@ export default function Register(): React.ReactElement {
       password,
       password2
     };
-    console.log(formData);
+    axios
+      .post("/api/user/register", formData)
+      .then(e => console.log(e))
+      .catch(e => console.log(e));
+    // console.log(formData);
   }
   return (
     <div className={styles.register}>

@@ -1,48 +1,54 @@
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const passport = require('passport');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const passport = require("passport");
+const users = require("./routes/api/user");
+const profile = require("./routes/api/profile");
+const posts = require("./routes/api/post");
+const keys = require("./config/keys");
+const JwtStrategy = require("passport-jwt").Strategy;
+const ExtractJwt = require("passport-jwt").ExtractJwt;
+const User = require('./models/User');
+
 const app = express();
 
-// 引入users.js
-const users = require('./routes/api/users');
-const profile = require('./routes/api/profile');
-const posts = require('./routes/api/posts');
-
-// DB config
-const db = require('./config/keys').mongoURI;
-
-// 使用body-parser中间件
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Connect to mongodb
 mongoose
-  .connect(db, { useNewUrlParser: true })
-  .then(() => console.log('MongoDB Connected'))
+  .connect(keys.mongoURI, { useNewUrlParser: true })
+  .then(() => console.log("MongoDB Connected"))
   .catch(err => console.log(err));
 
-// 使用中间件实现允许跨域
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Content-Type');
-  res.header('Access-Control-Allow-Methods', 'PUT,POST,GET,DELETE,OPTIONS');
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+  res.header("Access-Control-Allow-Methods", "PUT,POST,GET,DELETE,OPTIONS");
   next();
 });
 
-// passport 初始化
 app.use(passport.initialize());
 
-require('./config/passport')(passport);
+const opts = {};
+opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
+opts.secretOrKey = keys.secretOrKey;
 
-// app.get("/",(req,res) => {
-//   res.send("Hello World!");
-// })
+passport.use(
+  new JwtStrategy(opts, (jwt_payload, done) => {
+    User.findById(jwt_payload.id)
+      .then(user => {
+        if (user) {
+          return done(null, user);
+        }
+        return done(null, false);
+      })
+      .catch(err => console.log(err));
+  })
+);
 
-// 使用routes
-app.use('/api/users', users);
-app.use('/api/profile', profile);
-app.use('/api/posts', posts);
+app.use("/api/user", users);
+app.use("/api/profile", profile);
+app.use("/api/post", posts);
 
 const port = process.env.PORT || 5000;
 
