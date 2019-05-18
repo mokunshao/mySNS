@@ -18,9 +18,9 @@
     "validator": "^10.11.0"
   },
   "scripts": {
-    "client-install": "yarn install --cwd client",
-    "client": "yarn --cwd client start",
     "start": "node server.js",
+    "client-install": "yarn --cwd client install",
+    "client": "yarn --cwd client start",
     "server": "nodemon server.js",
     "dev": "concurrently \"yarn server\" \"yarn client\""
   }
