@@ -1,8 +1,27 @@
 {
-  "name": "mySNS",
+  "name": "mysns",
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/mokunshao/mySNS.git",
   "author": "mokunshao <1627510957@qq.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^3.0.6",
+    "body-parser": "^1.19.0",
+    "concurrently": "^4.1.0",
+    "express": "^4.17.0",
+    "gravatar": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.5.9",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "validator": "^10.11.0"
+  },
+  "scripts": {
+    "client-install": "yarn install --cwd client",
+    "client": "yarn --cwd client start",
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "dev": "concurrently \"yarn server\" \"yarn client\""
+  }
 }
