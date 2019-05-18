@@ -33,11 +33,10 @@ export default function Login(): React.ReactElement {
     };
     console.log(formData);
     axios
-      .post("/api/test", formData)
+      .post("/api/user/login", formData)
       .then(res => console.log(res))
       .catch(err => {
-        // setErrors(err.response.data)
-        setErrors({ ...errors, email: "邮箱错误" });
+        setErrors(err.response.data)
       });
   }
   return (

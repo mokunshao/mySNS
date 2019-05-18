@@ -46,8 +46,7 @@ export default function Register(): React.ReactElement {
     axios
       .post("/api/user/register", formData)
       .then(e => console.log(e))
-      .catch(e => console.log(e));
-    // console.log(formData);
+      .catch(err => setErrors(err.response.data));
   }
   return (
     <div className={styles.register}>
