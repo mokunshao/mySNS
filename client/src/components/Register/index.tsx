@@ -8,7 +8,6 @@ interface Props{
 }
 
 function Register(props:Props): React.ReactElement {
-  console.dir(props);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
