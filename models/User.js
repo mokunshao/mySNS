@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // Create Schema
 const UserSchema = new Schema({
-  name:{
+  username:{
     type:String,
     required:true
   },
@@ -24,4 +24,4 @@ const UserSchema = new Schema({
   }
 })
 
-module.exports = User = mongoose.model("users",UserSchema);
+module.exports = User = mongoose.model("User",UserSchema);

@@ -43,7 +43,7 @@ router.post('/register', (req, res) => {
       });
 
       const newUser = new User({
-        name: req.body.name,
+        username: req.body.username,
         email: req.body.email,
         avatar,
         password: req.body.password
@@ -88,7 +88,7 @@ router.post('/login', (req, res) => {
     // 密码匹配
     bcrypt.compare(password, user.password).then(isMatch => {
       if (isMatch) {
-        const rule = { id: user.id, name: user.name, avatar: user.avatar };
+        const rule = { id: user.id, username: user.username, avatar: user.avatar };
         jwt.sign(rule, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
           if (err) throw err;
           res.json({
@@ -96,7 +96,6 @@ router.post('/login', (req, res) => {
             token: 'Bearer ' + token
           });
         });
-        // res.json({msg:"success"});
       } else {
         return res.status(400).json({ password: '密码错误!' });
       }
@@ -113,7 +112,7 @@ router.get(
   (req, res) => {
     res.json({
       id: req.user.id,
-      name: req.user.name,
+      username: req.user.username,
       email: req.user.email
     });
   }

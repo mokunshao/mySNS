@@ -2,9 +2,9 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-const users = require("./routes/api/user");
+const user = require("./routes/api/user");
 const profile = require("./routes/api/profile");
-const posts = require("./routes/api/post");
+const post = require("./routes/api/post");
 const keys = require("./config/keys");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
@@ -46,9 +46,9 @@ passport.use(
   })
 );
 
-app.use("/api/user", users);
+app.use("/api/user", user);
 app.use("/api/profile", profile);
-app.use("/api/post", posts);
+app.use("/api/post", post);
 
 const port = process.env.PORT || 5000;
 

@@ -31,7 +31,6 @@ export default function Login(): React.ReactElement {
       email,
       password
     };
-    console.log(formData);
     axios
       .post("/api/user/login", formData)
       .then(res => console.log(res))
