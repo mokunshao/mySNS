@@ -2,19 +2,20 @@ import React, { useState, SetStateAction } from "react";
 import styles from "./styles.module.scss";
 import axios from "axios";
 
-export default function Login(): React.ReactElement {
+interface Iinput {
+  target: {
+    name: String;
+    value: SetStateAction<string>;
+  };
+}
+
+function Login(): React.ReactElement {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({
     email: "",
     password: ""
   });
-  interface Iinput {
-    target: {
-      name: String;
-      value: SetStateAction<string>;
-    };
-  }
   function handleChange(e: React.ChangeEvent & Iinput): void {
     switch (e.target.name) {
       case "email":
@@ -73,3 +74,5 @@ export default function Login(): React.ReactElement {
     </div>
   );
 }
+
+export default Login;

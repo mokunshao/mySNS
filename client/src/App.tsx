@@ -6,9 +6,12 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Welcome from "./components/Welcome";
 import { BrowserRouter, Route } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const App: React.FC = () => {
   return (
+    <Provider store={store}>
     <BrowserRouter>
       <div className={styles.app}>
         <NavBar />
@@ -20,6 +23,7 @@ const App: React.FC = () => {
         <Footer />
       </div>
     </BrowserRouter>
+    </Provider>
   );
 };
 

@@ -1,8 +1,14 @@
 import React, { useState, SetStateAction } from "react";
 import styles from "./styles.module.scss";
-import axios from "axios";
+import { connect } from "react-redux";
+import { registerUser } from "../../redux/actions/authActions";
 
-export default function Register(): React.ReactElement {
+interface Props{
+  registerUser:Function
+}
+
+function Register(props:Props): React.ReactElement {
+  console.dir(props);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,10 +49,7 @@ export default function Register(): React.ReactElement {
       password,
       password2
     };
-    axios
-      .post("/api/user/register", formData)
-      .then(e => console.log(e))
-      .catch(err => setErrors(err.response.data));
+    props.registerUser(formData);
   }
   return (
     <div className={styles.register}>
@@ -109,3 +112,10 @@ export default function Register(): React.ReactElement {
     </div>
   );
 }
+
+const mapDispatchToProps = { registerUser };
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(Register);
