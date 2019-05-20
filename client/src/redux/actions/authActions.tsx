@@ -71,7 +71,7 @@ export const resetErrors = () => (dispatch: any) => {
   });
 };
 
-export const logout = () => (dispatch: any) => {
+export const logoutUser = () => (dispatch: any) => {
   localStorage.removeItem("msToken");
   setAuthToken(false);
   dispatch({

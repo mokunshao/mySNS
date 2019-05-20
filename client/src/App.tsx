@@ -17,7 +17,6 @@ const App: React.FC = () => {
     if (localStorage.msToken) {
       setAuthToken(localStorage.msToken);
       const decoded = jwt_decode(localStorage.msToken);
-      console.log(decoded);
       store.dispatch({ type: SET_CURRENT_USER, payload: decoded });
     }
   }, []);

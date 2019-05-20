@@ -1,8 +1,11 @@
 import React from "react";
 import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { logoutUser } from "../../redux/actions/authActions";
 
-export default function NavBar() {
+function NavBar(props:any) {
+  console.log(props)
   return (
     <div className={styles.navBar}>
       <div className={styles.container}>
@@ -19,3 +22,12 @@ export default function NavBar() {
     </div>
   );
 }
+
+const mapStateToProps = (state: any) => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  null
+)(NavBar);
