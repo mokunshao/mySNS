@@ -70,3 +70,12 @@ export const resetErrors = () => (dispatch: any) => {
     payload: {}
   });
 };
+
+export const logout = () => (dispatch: any) => {
+  localStorage.removeItem("msToken");
+  setAuthToken(false);
+  dispatch({
+    type: SET_CURRENT_USER,
+    payload: {}
+  });
+};
