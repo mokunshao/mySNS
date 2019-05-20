@@ -1,7 +1,7 @@
-import React, { useState, SetStateAction } from "react";
+import React, { useState, SetStateAction, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { connect } from "react-redux";
-import { registerUser } from "../../redux/actions/authActions";
+import { registerUser, resetErrors } from "../../redux/actions/authActions";
 
 interface Errors {
   username: "";
@@ -13,9 +13,14 @@ interface Errors {
 interface Props {
   registerUser: Function;
   errors: Errors;
+  history: Object;
+  resetErrors: Function;
 }
 
 function Register(props: Props): React.ReactElement {
+  useEffect(() => {
+    props.resetErrors();
+  }, []);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -50,7 +55,7 @@ function Register(props: Props): React.ReactElement {
       password,
       password2
     };
-    props.registerUser(formData);
+    props.registerUser(formData, props.history);
   }
   return (
     <div className={styles.register}>
@@ -124,7 +129,7 @@ const mapStateToProps = (state: any) => ({
   errors: state.errors
 });
 
-const mapDispatchToProps = { registerUser };
+const mapDispatchToProps = { registerUser, resetErrors };
 
 export default connect(
   mapStateToProps,

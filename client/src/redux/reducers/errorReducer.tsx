@@ -7,16 +7,9 @@ const initialState = {
   password2: ""
 };
 
-interface Errors{
-  username: string,
-  email: string,
-  password: string,
-  password2: string
-}
-
 interface Action {
   type: string;
-  payload: Errors;
+  payload: any;
 }
 
 export default function(state = initialState, action: Action) {

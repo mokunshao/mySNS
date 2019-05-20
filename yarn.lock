@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"@types/jwt-decode@^2.2.1":
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/@types/jwt-decode/download/@types/jwt-decode-2.2.1.tgz#afdf5c527fcfccbd4009b5fd02d1e18241f2d2f2"
+  integrity sha1-r99cUn/PzL1ACbX9AtHhgkHy0vI=
+
 abbrev@1:
   version "1.1.1"
   resolved "https://registry.npm.taobao.org/abbrev/download/abbrev-1.1.1.tgz#f8f2c887ad10bf67f634f005b6987fed3179aac8"

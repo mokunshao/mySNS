@@ -1,6 +1,7 @@
-import React, { useState, SetStateAction } from "react";
+import React, { useState, SetStateAction, useEffect } from "react";
 import styles from "./styles.module.scss";
-import axios from "axios";
+import { loginUser, resetErrors } from "../../redux/actions/authActions";
+import { connect } from "react-redux";
 
 interface Iinput {
   target: {
@@ -9,13 +10,25 @@ interface Iinput {
   };
 }
 
-function Login(): React.ReactElement {
+interface Errors {
+  email: string;
+  password: string;
+}
+
+interface Props {
+  errors: Errors;
+  loginUser: Function;
+  dispatch: Function;
+  resetErrors: Function;
+}
+
+function Login(props: Props): React.ReactElement {
+  console.log(props);
+  useEffect(() => {
+    props.resetErrors();
+  }, []);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState({
-    email: "",
-    password: ""
-  });
   function handleChange(e: React.ChangeEvent & Iinput): void {
     switch (e.target.name) {
       case "email":
@@ -32,12 +45,7 @@ function Login(): React.ReactElement {
       email,
       password
     };
-    axios
-      .post("/api/user/login", formData)
-      .then(res => console.log(res))
-      .catch(err => {
-        setErrors(err.response.data)
-      });
+    props.loginUser(formData);
   }
   return (
     <div className={styles.login}>
@@ -45,28 +53,30 @@ function Login(): React.ReactElement {
       <form onSubmit={handleSubmit}>
         <div className={styles.inputArea}>
           <input
-            className={errors.email ? styles.invalid : ""}
+            className={props.errors.email ? styles.invalid : ""}
             name={"email"}
             value={email}
             onChange={handleChange}
             type="email"
             placeholder="邮箱"
           />
-          {errors.email && (
-            <div className={styles.invalidFeedback}>{errors.email}</div>
+          {props.errors.email && (
+            <div className={styles.invalidFeedback}>{props.errors.email}</div>
           )}
         </div>
         <div className={styles.inputArea}>
           <input
-            className={errors.password ? styles.invalid : ""}
+            className={props.errors.password ? styles.invalid : ""}
             name={"password"}
             value={password}
             onChange={handleChange}
             type="password"
             placeholder="密码"
           />
-          {errors.password && (
-            <div className={styles.invalidFeedback}>{errors.password}</div>
+          {props.errors.password && (
+            <div className={styles.invalidFeedback}>
+              {props.errors.password}
+            </div>
           )}
         </div>
         <button onSubmit={handleSubmit}>登录</button>
@@ -75,4 +85,16 @@ function Login(): React.ReactElement {
   );
 }
 
-export default Login;
+const mapStateToProps = (state: any) => ({
+  errors: state.errors
+});
+
+const mapDispatchToProps = {
+  loginUser,
+  resetErrors
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Login);
