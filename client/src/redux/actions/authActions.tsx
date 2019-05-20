@@ -26,6 +26,10 @@ export const registerUser = (formData: RegisterData, history: any) => (
         type: GET_ERRORS,
         payload: {}
       });
+      dispatch({
+        type: GET_ERRORS,
+        payload: {}
+      });
     })
     .catch(err => {
       dispatch({
@@ -46,6 +50,10 @@ export const loginUser = (formData: LoginData) => (dispatch: Function) => {
       dispatch({
         type: SET_CURRENT_USER,
         payload: decoded
+      });
+      dispatch({
+        type: GET_ERRORS,
+        payload: {}
       });
     })
     .catch(err => {

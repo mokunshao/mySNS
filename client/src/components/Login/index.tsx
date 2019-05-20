@@ -20,13 +20,17 @@ interface Props {
   loginUser: Function;
   dispatch: Function;
   resetErrors: Function;
+  auth: any;
+  history: any;
 }
 
 function Login(props: Props): React.ReactElement {
-  console.log(props);
   useEffect(() => {
     props.resetErrors();
-  }, []);
+    if (props.auth.isAuthenticated) {
+      props.history.push("/dashboard");
+    }
+  },[]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleChange(e: React.ChangeEvent & Iinput): void {
@@ -86,7 +90,8 @@ function Login(props: Props): React.ReactElement {
 }
 
 const mapStateToProps = (state: any) => ({
-  errors: state.errors
+  errors: state.errors,
+  auth: state.auth
 });
 
 const mapDispatchToProps = {

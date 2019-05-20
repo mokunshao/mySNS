@@ -20,7 +20,7 @@ interface Props {
 function Register(props: Props): React.ReactElement {
   useEffect(() => {
     props.resetErrors();
-  }, []);
+  },[]);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
