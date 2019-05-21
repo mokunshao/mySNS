@@ -30,7 +30,7 @@ function Login(props: Props): React.ReactElement {
     if (props.auth.isAuthenticated) {
       props.history.push("/dashboard");
     }
-  },[]);
+  }, [props.auth.isAuthenticated]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   function handleChange(e: React.ChangeEvent & Iinput): void {
