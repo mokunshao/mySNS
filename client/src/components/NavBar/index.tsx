@@ -3,9 +3,14 @@ import styles from "./styles.module.scss";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
+import { ActionCreator } from "redux";
 
-function NavBar(props: any) {
-  console.log(props.auth.user.avatar);
+interface Props {
+  logoutUser: ActionCreator<any>;
+  auth: any;
+}
+
+function NavBar(props: Props) {
   const authUserActions = (
     <div className={styles.actions}>
       <Link to={"/register"} className={styles.button}>
@@ -18,7 +23,11 @@ function NavBar(props: any) {
   );
   const guestUserActions = (
     <div className={styles.actions}>
-      <img className={styles.avatar} src={props.auth.user.avatar} alt="avatar" />
+      <img
+        className={styles.avatar}
+        src={props.auth.user.avatar}
+        alt="avatar"
+      />
       <span className={styles.button} onClick={props.logoutUser}>
         退出
       </span>

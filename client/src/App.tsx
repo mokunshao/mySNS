@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./App.module.scss";
 import NavBar from "./components/NavBar";
 import Footer from "./components/Footer";
@@ -13,13 +13,17 @@ import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./redux/actionTypes";
 
 const App: React.FC = () => {
-  useEffect(() => {
-    if (localStorage.msToken) {
-      setAuthToken(localStorage.msToken);
-      const decoded = jwt_decode(localStorage.msToken);
-      store.dispatch({ type: SET_CURRENT_USER, payload: decoded });
+  if (localStorage.msToken) {
+    setAuthToken(localStorage.msToken);
+    const decoded = jwt_decode(localStorage.msToken);
+    store.dispatch({ type: SET_CURRENT_USER, payload: decoded });
+    const currentTime = Date.now() / 1000;
+    if ((decoded as any).exp < currentTime) {
+      localStorage.removeItem("msToken");
+      setAuthToken(false);
+      store.dispatch({ type: SET_CURRENT_USER, payload: {} });
     }
-  }, []);
+  }
   return (
     <Provider store={store}>
       <BrowserRouter>
