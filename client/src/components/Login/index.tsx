@@ -2,6 +2,7 @@ import React, { useState, SetStateAction, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { loginUser, resetErrors } from "../../redux/actions/authActions";
 import { connect } from "react-redux";
+import TextFieldGroup from "../TextFieldGroup";
 
 interface Iinput {
   target: {
@@ -55,34 +56,22 @@ function Login(props: Props): React.ReactElement {
     <div className={styles.login}>
       <h2>登录</h2>
       <form onSubmit={handleSubmit}>
-        <div className={styles.inputArea}>
-          <input
-            className={props.errors.email ? styles.invalid : ""}
-            name={"email"}
-            value={email}
-            onChange={handleChange}
-            type="email"
-            placeholder="邮箱"
-          />
-          {props.errors.email && (
-            <div className={styles.invalidFeedback}>{props.errors.email}</div>
-          )}
-        </div>
-        <div className={styles.inputArea}>
-          <input
-            className={props.errors.password ? styles.invalid : ""}
-            name={"password"}
-            value={password}
-            onChange={handleChange}
-            type="password"
-            placeholder="密码"
-          />
-          {props.errors.password && (
-            <div className={styles.invalidFeedback}>
-              {props.errors.password}
-            </div>
-          )}
-        </div>
+        <TextFieldGroup
+          name={"email"}
+          value={email}
+          onChange={handleChange}
+          type="email"
+          placeholder="邮箱"
+          errors={props.errors.email}
+        />
+        <TextFieldGroup
+          name={"password"}
+          value={password}
+          onChange={handleChange}
+          type="password"
+          placeholder="密码"
+          errors={props.errors.password}
+        />
         <button onSubmit={handleSubmit}>登录</button>
       </form>
     </div>

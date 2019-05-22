@@ -14,25 +14,6 @@
   form {
     margin: 0 auto;
     width: 270px;
-    .inputArea {
-      margin-bottom: 15px;
-      .invalidFeedback {
-        font-size: 80%;
-        color: #dc3545;
-      }
-      input {
-        width: 100%;
-        font-size: 14px;
-        padding: 6px 12px 8px;
-        box-sizing: border-box;
-        border-radius: 3px;
-        outline: none;
-        border: 1px solid #d3d9de;
-      }
-      .invalid {
-        border-color: #dc3545;
-      }
-    }
     button {
       width: 100%;
       color: white;
