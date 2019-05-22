@@ -25,13 +25,12 @@ router.get(
   (req, res) => {
     const errors = {};
     Profile.findOne({ user: req.user.id })
-      .populate("user", ["name", "avatar"])
+      .populate("user", ["username", "avatar"])
       .then(profile => {
         if (!profile) {
           errors.noprofile = "该用户的信息不存在~!";
           return res.status(404).json(errors);
         }
-
         res.json(profile);
       })
       .catch(err => res.status(404).json(err));
