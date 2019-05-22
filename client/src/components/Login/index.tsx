@@ -21,7 +21,7 @@ interface Props {
   dispatch: Function;
   resetErrors: Function;
   auth: any;
-  history: any;
+  history: { push: Function };
 }
 
 function Login(props: Props): React.ReactElement {
