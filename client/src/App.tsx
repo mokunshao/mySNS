@@ -12,6 +12,7 @@ import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./redux/actionTypes";
 import Dashboard from "./components/Dashboard";
+import PrivateRoute from './components/PrivateRoute'
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -35,7 +36,7 @@ const App: React.FC = () => {
               <Route exact path={"/"} component={Welcome} />
               <Route exact path={"/login"} component={Login} />
               <Route exact path={"/register"} component={Register} />
-              <Route exact path={"/dashboard"} component={Dashboard} />
+              <PrivateRoute exact path={"/dashboard"} component={Dashboard} />
             </Switch>
           </div>
           <Footer />
