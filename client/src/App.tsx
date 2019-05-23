@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Welcome from "./components/Welcome";
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import setAuthToken from "./utils/setAuthToken";
@@ -31,10 +31,12 @@ const App: React.FC = () => {
         <div className={styles.app}>
           <NavBar />
           <div className={styles.container}>
-            <Route exact path={"/"} component={Welcome} />
-            <Route exact path={"/login"} component={Login} />
-            <Route exact path={"/register"} component={Register} />
-            <Route exact path={"/dashboard"} component={Dashboard} />
+            <Switch>
+              <Route exact path={"/"} component={Welcome} />
+              <Route exact path={"/login"} component={Login} />
+              <Route exact path={"/register"} component={Register} />
+              <Route exact path={"/dashboard"} component={Dashboard} />
+            </Switch>
           </div>
           <Footer />
         </div>

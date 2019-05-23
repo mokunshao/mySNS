@@ -4,9 +4,10 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { logoutUser } from "../../redux/actions/authActions";
 import { ActionCreator } from "redux";
-
+import { clearProfile } from "../../redux/actions/profileActions";
 interface Props {
   logoutUser: ActionCreator<any>;
+  clearProfile: ActionCreator<any>;
   auth: any;
 }
 
@@ -28,11 +29,15 @@ function NavBar(props: Props) {
         src={props.auth.user.avatar}
         alt="avatar"
       />
-      <span className={styles.button} onClick={props.logoutUser}>
+      <span className={styles.button} onClick={logout}>
         退出
       </span>
     </div>
   );
+  function logout() {
+    props.logoutUser();
+    props.clearProfile();
+  }
   return (
     <div className={styles.navBar}>
       <div className={styles.container}>
@@ -48,7 +53,8 @@ const mapStateToProps = (state: any) => ({
 });
 
 const mapDispatchToProps = {
-  logoutUser
+  logoutUser,
+  clearProfile
 };
 
 export default connect(

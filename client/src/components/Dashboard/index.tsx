@@ -2,17 +2,22 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { getCurrentProfile } from "../../redux/actions/profileActions";
 import Loading from "../Loading";
+import { Link } from "react-router-dom";
 
 function Dashboard(props: any) {
   let dashboardContent;
   if (!props.profile.profile || props.profile.loading) {
-    dashboardContent = (
-      <div>
-        <Loading />
-      </div>
-    );
+    dashboardContent = <Loading />;
+  } else if (Object.keys(props.profile.profile).length > 0) {
+    dashboardContent = <React.Fragment>TODO：展示数据</React.Fragment>;
   } else {
-    dashboardContent = <div>hello world</div>;
+    dashboardContent = (
+      <>
+        <div>欢迎 {props.auth.user.username}</div>
+        <div>没有任何个人信息，请添加一些您的个人信息</div>
+        <Link to="/createProfile">创建个人信息</Link>
+      </>
+    );
   }
   useEffect(() => {
     props.getCurrentProfile();
