@@ -5,23 +5,24 @@ interface Props {
   name: string;
   value: string;
   onChange: any;
-  type: string;
+  type?: string;
   errors: any;
   placeholder: string;
-  icon:string;
+  icon: string;
 }
 
 export default function InputGroup({
   name,
   value,
   onChange,
-  type,
+  type = "text",
   errors,
   placeholder,
   icon
 }: Props) {
   return (
     <div className={styles.inputArea}>
+      <div className={styles.icon}></div>
       <input
         className={errors ? styles.invalid : ""}
         name={name}

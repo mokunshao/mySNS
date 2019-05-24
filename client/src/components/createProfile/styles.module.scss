@@ -7,8 +7,33 @@
   margin-top: 15px;
   border-radius: 4px;
   box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+  h1{
+    margin-top: 0;
+  }
   h1,
   p {
     text-align: center;
+  }
+  .button{
+    color: #212529;
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover{
+      background-color: darken($color: #f8f9fa, $amount: 10%)
+    }
+  }
+  .submit {
+    background: #4a76a8;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    border-radius: 4px;
   }
 }

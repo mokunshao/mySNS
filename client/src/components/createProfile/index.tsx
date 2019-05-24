@@ -3,6 +3,7 @@ import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import TextFieldGroup from "../TextFieldGroup";
 import SelectListGroup from "../SelectListGroup";
 import styles from "./styles.module.scss";
+import InputGroup from "../InputGroup";
 
 interface Input {
   target: {
@@ -31,6 +32,9 @@ export default function createProfile() {
   }
   return (
     <div className={styles.createProfile}>
+      <div>
+        <button className={styles.button}>返回</button>
+      </div>
       <h1>创建个人信息</h1>
       <p>填写您的个人信息，让人们更多地了解您</p>
       <form onSubmit={handleSubmit}>
@@ -105,8 +109,35 @@ export default function createProfile() {
           info="个人介绍"
         />
         <div>
-          <div>添加社交账号</div>
+          <div style={{ marginBottom: "10px" }}>
+            <button className={styles.button}>添加社交账号</button>
+          </div>
+          <InputGroup
+            name=""
+            value=""
+            onChange=""
+            errors=""
+            placeholder="QQ"
+            icon=""
+          />
+          <InputGroup
+            name=""
+            value=""
+            onChange=""
+            errors=""
+            placeholder="微信"
+            icon=""
+          />
+          <InputGroup
+            name=""
+            value=""
+            onChange=""
+            errors=""
+            placeholder="微博"
+            icon=""
+          />
         </div>
+        <input type="submit" className={styles.submit} value="提交" />
       </form>
     </div>
   );
