@@ -39,7 +39,20 @@ export default function CreateProfile() {
 
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
-    console.log("handleSubmit");
+    const profileData = {
+      handle,
+      status,
+      company,
+      website,
+      location,
+      skills,
+      github,
+      bio,
+      qq,
+      wechat,
+      weibo
+    };
+    console.log(profileData);
   }
   function handleChange(e: FormEvent & Input) {
     switch (e.target.name) {
@@ -161,6 +174,7 @@ export default function CreateProfile() {
         <div>
           <div style={{ marginBottom: "10px" }}>
             <button
+              type="button"
               className={styles.button}
               onClick={() => {
                 setDisplaySocial(!displaySocial);
@@ -177,7 +191,7 @@ export default function CreateProfile() {
                 onChange={handleChange}
                 errors=""
                 placeholder="QQ"
-                icon=""
+                icon="qq"
               />
               <InputGroup
                 name="wechat"
@@ -185,7 +199,7 @@ export default function CreateProfile() {
                 onChange={handleChange}
                 errors=""
                 placeholder="微信"
-                icon=""
+                icon="weixin"
               />
               <InputGroup
                 name="weibo"
@@ -193,7 +207,7 @@ export default function CreateProfile() {
                 onChange={handleChange}
                 errors=""
                 placeholder="微博"
-                icon=""
+                icon="weibo"
               />
             </div>
           ) : null}
