@@ -6,11 +6,12 @@ interface Props {
   value: string;
   onChange: any;
   type: string;
-  errors: any
-  placeholder:string;
+  errors: any;
+  placeholder: string;
+  info?: String;
 }
 
-export default function TextFieldGroup(props:Props) {
+export default function TextFieldGroup(props: Props) {
   return (
     <div className={styles.inputArea}>
       <input
@@ -21,6 +22,9 @@ export default function TextFieldGroup(props:Props) {
         type={props.type}
         placeholder={props.placeholder}
       />
+      {props.info && (
+        <small className={styles.info}>{props.info}</small>
+      )}
       {props.errors && (
         <div className={styles.invalidFeedback}>{props.errors}</div>
       )}

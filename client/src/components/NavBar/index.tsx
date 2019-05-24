@@ -41,7 +41,7 @@ function NavBar(props: Props) {
   return (
     <div className={styles.navBar}>
       <div className={styles.container}>
-        <div className={styles.logo}>mySNS</div>
+        <div className={styles.logo}><Link to='/'>mySNS</Link></div>
         {props.auth.isAuthenticated ? guestUserActions : authUserActions}
       </div>
     </div>

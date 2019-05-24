@@ -4,7 +4,7 @@
     font-size: 80%;
     color: #dc3545;
   }
-  input {
+  textarea {
     width: 100%;
     font-size: 14px;
     padding: 6px 12px 8px;
@@ -15,9 +15,5 @@
   }
   .invalid {
     border-color: #dc3545;
-  }
-  .info {
-    font-size: 80%;
-    color: #6c757d;
   }
 }

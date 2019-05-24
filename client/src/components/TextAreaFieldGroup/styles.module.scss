@@ -1,10 +1,10 @@
-.inputArea {
+.TextArea {
   margin-bottom: 15px;
   .invalidFeedback {
     font-size: 80%;
     color: #dc3545;
   }
-  input {
+  textarea {
     width: 100%;
     font-size: 14px;
     padding: 6px 12px 8px;
@@ -12,11 +12,12 @@
     border-radius: 3px;
     outline: none;
     border: 1px solid #d3d9de;
+    resize: vertical;
   }
   .invalid {
     border-color: #dc3545;
   }
-  .info {
+  .info{
     font-size: 80%;
     color: #6c757d;
   }

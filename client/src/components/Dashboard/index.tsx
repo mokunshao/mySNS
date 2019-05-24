@@ -15,7 +15,7 @@ function Dashboard(props: any) {
       <>
         <div>欢迎 {props.auth.user.username}</div>
         <div>没有任何个人信息，请添加一些您的个人信息</div>
-        <Link to="/createProfile">创建个人信息</Link>
+        <Link to="/create-profile">创建个人信息</Link>
       </>
     );
   }
