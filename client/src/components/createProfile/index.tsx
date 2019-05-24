@@ -1,4 +1,4 @@
-import React, { FormEvent } from "react";
+import React, { FormEvent, useState } from "react";
 import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import TextFieldGroup from "../TextFieldGroup";
 import SelectListGroup from "../SelectListGroup";
@@ -8,6 +8,7 @@ import InputGroup from "../InputGroup";
 interface Input {
   target: {
     name: string;
+    value: string;
   };
 }
 
@@ -22,13 +23,62 @@ const options = [
   { label: "Other", value: "其他" }
 ];
 
-export default function createProfile() {
+export default function CreateProfile() {
+  const [displaySocial, setDisplaySocial] = useState(false);
+  const [handle, setHandle] = useState("");
+  const [status, setStatus] = useState("");
+  const [company, setCompany] = useState("");
+  const [website, setWebsite] = useState("");
+  const [location, setLocation] = useState("");
+  const [skills, setSkills] = useState("");
+  const [github, setGithub] = useState("");
+  const [bio, setBio] = useState("");
+  const [qq, setQQ] = useState("");
+  const [wechat, setWechat] = useState("");
+  const [weibo, setWeibo] = useState("");
+
   function handleSubmit(e: FormEvent) {
     e.preventDefault();
     console.log("handleSubmit");
   }
   function handleChange(e: FormEvent & Input) {
-    console.log(e.target.name);
+    switch (e.target.name) {
+      case "handle":
+        setHandle(e.target.value);
+        break;
+      case "status":
+        setStatus(e.target.value);
+        break;
+      case "company":
+        setCompany(e.target.value);
+        break;
+      case "website":
+        setWebsite(e.target.value);
+        break;
+      case "location":
+        setLocation(e.target.value);
+        break;
+      case "skills":
+        setSkills(e.target.value);
+        break;
+      case "github":
+        setGithub(e.target.value);
+        break;
+      case "bio":
+        setBio(e.target.value);
+        break;
+      case "qq":
+        setQQ(e.target.value);
+        break;
+      case "wechat":
+        setWechat(e.target.value);
+        break;
+      case "weibo":
+        setWeibo(e.target.value);
+        break;
+      default:
+        break;
+    }
   }
   return (
     <div className={styles.createProfile}>
@@ -40,24 +90,24 @@ export default function createProfile() {
       <form onSubmit={handleSubmit}>
         <TextFieldGroup
           name="handle"
-          value=""
+          value={handle}
           onChange={handleChange}
           type="text"
           errors=""
           placeholder="handle"
-          info="此处的handle是在后端接口中需要用来查询数据的, 通常是写你email的名字"
+          info="此处的 handle 是在后端接口中需要用来查询数据的, 通常是写你 email 的名字"
         />
         <SelectListGroup
           options={options}
           name="status"
-          value="0"
+          value={status}
           onChange={handleChange}
           errors=""
           info="请告知我们您目前所从事的岗位"
         />
         <TextFieldGroup
           name="company"
-          value=""
+          value={company}
           onChange={handleChange}
           type="text"
           errors=""
@@ -66,7 +116,7 @@ export default function createProfile() {
         />
         <TextFieldGroup
           name="website"
-          value=""
+          value={website}
           onChange={handleChange}
           type="text"
           errors=""
@@ -75,7 +125,7 @@ export default function createProfile() {
         />
         <TextFieldGroup
           name="location"
-          value=""
+          value={location}
           onChange={handleChange}
           type="text"
           errors=""
@@ -84,7 +134,7 @@ export default function createProfile() {
         />
         <TextFieldGroup
           name="skills"
-          value=""
+          value={skills}
           onChange={handleChange}
           type="text"
           errors=""
@@ -93,7 +143,7 @@ export default function createProfile() {
         />
         <TextFieldGroup
           name="github"
-          value=""
+          value={github}
           onChange={handleChange}
           type="text"
           errors=""
@@ -102,7 +152,7 @@ export default function createProfile() {
         />
         <TextAreaFieldGroup
           name="bio"
-          value=""
+          value={bio}
           onChange={handleChange}
           errors=""
           placeholder="个人介绍"
@@ -110,34 +160,50 @@ export default function createProfile() {
         />
         <div>
           <div style={{ marginBottom: "10px" }}>
-            <button className={styles.button}>添加社交账号</button>
+            <button
+              className={styles.button}
+              onClick={() => {
+                setDisplaySocial(!displaySocial);
+              }}
+            >
+              添加社交账号
+            </button>
           </div>
-          <InputGroup
-            name=""
-            value=""
-            onChange=""
-            errors=""
-            placeholder="QQ"
-            icon=""
-          />
-          <InputGroup
-            name=""
-            value=""
-            onChange=""
-            errors=""
-            placeholder="微信"
-            icon=""
-          />
-          <InputGroup
-            name=""
-            value=""
-            onChange=""
-            errors=""
-            placeholder="微博"
-            icon=""
-          />
+          {displaySocial ? (
+            <div>
+              <InputGroup
+                name="qq"
+                value={qq}
+                onChange={handleChange}
+                errors=""
+                placeholder="QQ"
+                icon=""
+              />
+              <InputGroup
+                name="wechat"
+                value={wechat}
+                onChange={handleChange}
+                errors=""
+                placeholder="微信"
+                icon=""
+              />
+              <InputGroup
+                name="weibo"
+                value={weibo}
+                onChange={handleChange}
+                errors=""
+                placeholder="微博"
+                icon=""
+              />
+            </div>
+          ) : null}
         </div>
-        <input type="submit" className={styles.submit} value="提交" />
+        <input
+          type="submit"
+          onClick={handleSubmit}
+          className={styles.submit}
+          value="提交"
+        />
       </form>
     </div>
   );

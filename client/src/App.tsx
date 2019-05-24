@@ -13,7 +13,7 @@ import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./redux/actionTypes";
 import Dashboard from "./components/Dashboard";
 import PrivateRoute from './components/PrivateRoute'
-import createProfile from "./components/createProfile";
+import createProfile from "./components/CreateProfile";
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
