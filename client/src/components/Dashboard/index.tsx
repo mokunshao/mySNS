@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getCurrentProfile } from "../../redux/actions/profileActions";
 import Loading from "../Loading";
 import { Link } from "react-router-dom";
+import styles from './styles.module.scss'
 
 function Dashboard(props: any) {
   let dashboardContent;
@@ -14,8 +15,8 @@ function Dashboard(props: any) {
     dashboardContent = (
       <>
         <div>欢迎 {props.auth.user.username}</div>
-        <div>没有任何个人信息，请添加一些您的个人信息</div>
-        <Link to="/create-profile">创建个人信息</Link>
+        <div>您没有任何个人信息，请添加一些您的个人信息</div>
+        <Link to="/create-profile" className={styles.button}>创建个人信息</Link>
       </>
     );
   }
@@ -23,7 +24,7 @@ function Dashboard(props: any) {
     props.getCurrentProfile();
   }, []);
   return (
-    <div>
+    <div className={styles.Dashboard}>
       <h1>Dashboard</h1>
       <div>{dashboardContent}</div>
     </div>
