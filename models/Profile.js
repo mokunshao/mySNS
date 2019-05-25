@@ -32,7 +32,7 @@ const ProfileSchema = new Schema({
   bio:{
     type:String
   },
-  githubusername:{
+  github:{
     type:String
   },
   experience:[
@@ -98,15 +98,12 @@ const ProfileSchema = new Schema({
     wechat:{
       type:String
     },
-    QQ:{
+    qq:{
       type:String
     },
-    tengxunkt:{
+    weibo:{
       type:String
     },
-    wangyikt:{
-      type:String
-    }
   },
   date:{
     type:Date,

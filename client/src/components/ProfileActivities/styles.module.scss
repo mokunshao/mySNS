@@ -1,0 +1,18 @@
+.ProfileActivities {
+  margin-top: 10px;
+  a {
+    margin-right: 5px;
+    text-decoration: none;
+    display: inline-block;
+    background: #edeef0;
+    color: black;
+    padding: 6px 12px;
+    border-radius: 4px;
+    &:hover {
+      background: darken($color: #edeef0, $amount: 10%);
+    }
+    svg {
+      margin-right: 5px;
+    }
+  }
+}

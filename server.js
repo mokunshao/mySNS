@@ -1,5 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
+mongoose.set("useFindAndModify", false);
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const user = require("./routes/api/user");
@@ -8,7 +9,7 @@ const post = require("./routes/api/post");
 const keys = require("./config/keys");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
-const User = require('./models/User');
+const User = require("./models/User");
 
 const app = express();
 

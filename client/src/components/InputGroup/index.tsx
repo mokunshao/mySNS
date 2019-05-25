@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import { library, IconProp, IconName } from "@fortawesome/fontawesome-svg-core";
+import { library, IconName } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faQq, faWeixin, faWeibo } from "@fortawesome/free-brands-svg-icons";
 library.add(faQq, faWeixin, faWeibo);

@@ -60,8 +60,8 @@ router.post(
     if (req.body.status) profileFields.status = req.body.status;
 
     if (req.body.bio) profileFields.bio = req.body.bio;
-    if (req.body.githubusername)
-      profileFields.githubusername = req.body.githubusername;
+    if (req.body.github)
+      profileFields.github = req.body.github;
 
     // skills - 数组转换
     if (typeof req.body.skills !== "undefined") {
@@ -71,9 +71,8 @@ router.post(
     profileFields.social = {};
 
     if (req.body.wechat) profileFields.social.wechat = req.body.wechat;
-    if (req.body.QQ) profileFields.social.QQ = req.body.QQ;
-    if (req.body.tengxunkt) profileFields.social.tengxunkt = req.body.tengxunkt;
-    if (req.body.wangyikt) profileFields.social.wangyikt = req.body.wangyikt;
+    if (req.body.qq) profileFields.social.qq = req.body.qq;
+    if (req.body.weibo) profileFields.social.weibo = req.body.weibo;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {

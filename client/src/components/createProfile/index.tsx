@@ -1,9 +1,12 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useEffect } from "react";
 import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import TextFieldGroup from "../TextFieldGroup";
 import SelectListGroup from "../SelectListGroup";
 import styles from "./styles.module.scss";
 import InputGroup from "../InputGroup";
+import { connect } from "react-redux";
+import { createProfile } from "../../redux/actions/profileActions";
+import { resetErrors } from "../../redux/actions/authActions";
 
 interface Input {
   target: {
@@ -23,7 +26,29 @@ const options = [
   { label: "Other", value: "其他" }
 ];
 
-export default function CreateProfile() {
+interface Props {
+  errors: {
+    handle: string;
+    status: string;
+    company: string;
+    website: string;
+    location: string;
+    skills: string;
+    bio: string;
+    qq: string;
+    github: string;
+    wechat: string;
+    weibo: string;
+  };
+  createProfile: Function;
+  history: any;
+  resetErrors: Function;
+}
+
+function CreateProfile(props: Props) {
+  useEffect(() => {
+    props.resetErrors();
+  }, []);
   const [displaySocial, setDisplaySocial] = useState(false);
   const [handle, setHandle] = useState("");
   const [status, setStatus] = useState("");
@@ -52,7 +77,7 @@ export default function CreateProfile() {
       wechat,
       weibo
     };
-    console.log(profileData);
+    props.createProfile(profileData, props.history);
   }
   function handleChange(e: FormEvent & Input) {
     switch (e.target.name) {
@@ -96,7 +121,14 @@ export default function CreateProfile() {
   return (
     <div className={styles.createProfile}>
       <div>
-        <button className={styles.button}>返回</button>
+        <button
+          className={styles.button}
+          onClick={() => {
+            props.history.go(-1);
+          }}
+        >
+          返回
+        </button>
       </div>
       <h1>创建个人信息</h1>
       <p>填写您的个人信息，让人们更多地了解您</p>
@@ -106,8 +138,8 @@ export default function CreateProfile() {
           value={handle}
           onChange={handleChange}
           type="text"
-          errors=""
-          placeholder="handle"
+          errors={props.errors.handle}
+          placeholder="* handle"
           info="此处的 handle 是在后端接口中需要用来查询数据的, 通常是写你 email 的名字"
         />
         <SelectListGroup
@@ -115,7 +147,7 @@ export default function CreateProfile() {
           name="status"
           value={status}
           onChange={handleChange}
-          errors=""
+          errors={props.errors.status}
           info="请告知我们您目前所从事的岗位"
         />
         <TextFieldGroup
@@ -123,7 +155,7 @@ export default function CreateProfile() {
           value={company}
           onChange={handleChange}
           type="text"
-          errors=""
+          errors={props.errors.company}
           placeholder="公司"
           info="公司"
         />
@@ -132,7 +164,7 @@ export default function CreateProfile() {
           value={website}
           onChange={handleChange}
           type="text"
-          errors=""
+          errors={props.errors.website}
           placeholder="网址"
           info="网址"
         />
@@ -141,7 +173,7 @@ export default function CreateProfile() {
           value={location}
           onChange={handleChange}
           type="text"
-          errors=""
+          errors={props.errors.location}
           placeholder="地点"
           info="地点"
         />
@@ -150,16 +182,16 @@ export default function CreateProfile() {
           value={skills}
           onChange={handleChange}
           type="text"
-          errors=""
-          placeholder="技能"
-          info="技能( 例如 HTML, CSS, JavaScript, PHP 等)"
+          errors={props.errors.skills}
+          placeholder="* 编程技能"
+          info="技能( 例如 HTML,CSS,JavaScript,PHP )"
         />
         <TextFieldGroup
           name="github"
           value={github}
           onChange={handleChange}
           type="text"
-          errors=""
+          errors={props.errors.github}
           placeholder="Github 用户名"
           info="Github 用户名"
         />
@@ -167,7 +199,7 @@ export default function CreateProfile() {
           name="bio"
           value={bio}
           onChange={handleChange}
-          errors=""
+          errors={props.errors.bio}
           placeholder="个人介绍"
           info="个人介绍"
         />
@@ -189,7 +221,7 @@ export default function CreateProfile() {
                 name="qq"
                 value={qq}
                 onChange={handleChange}
-                errors=""
+                errors={props.errors.qq}
                 placeholder="QQ"
                 icon="qq"
               />
@@ -197,7 +229,7 @@ export default function CreateProfile() {
                 name="wechat"
                 value={wechat}
                 onChange={handleChange}
-                errors=""
+                errors={props.errors.wechat}
                 placeholder="微信"
                 icon="weixin"
               />
@@ -205,7 +237,7 @@ export default function CreateProfile() {
                 name="weibo"
                 value={weibo}
                 onChange={handleChange}
-                errors=""
+                errors={props.errors.weibo}
                 placeholder="微博"
                 icon="weibo"
               />
@@ -222,3 +254,17 @@ export default function CreateProfile() {
     </div>
   );
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    errors: state.errors,
+    profile: state.profile
+  };
+};
+
+const mapDispatchToProps = { createProfile, resetErrors };
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CreateProfile);

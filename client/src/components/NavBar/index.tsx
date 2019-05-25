@@ -12,7 +12,7 @@ interface Props {
 }
 
 function NavBar(props: Props) {
-  const authUserActions = (
+  const guestUserActions  = (
     <div className={styles.actions}>
       <Link to={"/register"} className={styles.button}>
         注册
@@ -22,7 +22,7 @@ function NavBar(props: Props) {
       </Link>
     </div>
   );
-  const guestUserActions = (
+  const authUserActions = (
     <div className={styles.actions}>
       <img
         className={styles.avatar}
@@ -42,7 +42,7 @@ function NavBar(props: Props) {
     <div className={styles.navBar}>
       <div className={styles.container}>
         <div className={styles.logo}><Link to='/'>mySNS</Link></div>
-        {props.auth.isAuthenticated ? guestUserActions : authUserActions}
+        {props.auth.isAuthenticated ? authUserActions :guestUserActions }
       </div>
     </div>
   );

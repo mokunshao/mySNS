@@ -27,5 +27,12 @@
     display: inline-block;
     text-decoration: none;
     margin-top: 10px;
+    cursor: pointer;
+  }
+  .delete{
+    background: #bd2130;
+    &:hover{
+      background: darken($color: #bd2130, $amount: 10%)
+    }
   }
 }
