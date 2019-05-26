@@ -8,18 +8,18 @@ import {
 import axios from "axios";
 
 export const getCurrentProfile = () => (dispatch: Function) => {
-    dispatch(setProfileLoading());
-    axios
-      .get("/api/profile")
-      .then(res => {
-        dispatch({ type: GET_PROFILE, payload: res.data });
-      })
-      .catch(() => {
-        dispatch({
-          type: GET_PROFILE,
-          payload: {}
-        });
-  });
+  dispatch(setProfileLoading());
+  axios
+    .get("/api/profile")
+    .then(res => {
+      dispatch({ type: GET_PROFILE, payload: res.data });
+    })
+    .catch(() => {
+      dispatch({
+        type: GET_PROFILE,
+        payload: {}
+      });
+    });
 };
 
 export const setProfileLoading = () => (dispatch: Function) => {
@@ -55,4 +55,20 @@ export const deleteAccount = () => (dispatch: Function) => {
       localStorage.removeItem("msToken");
     })
     .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
+};
+
+export const addExperience = (data: any, history: any) => (
+  dispatch: Function
+) => {
+  axios
+    .post("/api/profile/experience", data)
+    .then(() => {
+      history.push("/dashboard");
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
 };

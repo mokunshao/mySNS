@@ -1,12 +1,16 @@
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useEffect } from "react";
 import { connect } from "react-redux";
 import styles from "./styles.module.scss";
 import TextFieldGroup from "../TextFieldGroup";
 import TextAreaFieldGroup from "../TextAreaFieldGroup";
+import { addExperience } from "../../redux/actions/profileActions";
+import { resetErrors } from "../../redux/actions/authActions";
 
 interface Props {
   history: any;
   errors: any;
+  addExperience: Function;
+  resetErrors: Function;
 }
 
 interface E {
@@ -17,6 +21,9 @@ interface E {
 }
 
 function AddExperience(props: Props) {
+  useEffect(() => {
+    props.resetErrors();
+  }, []);
   const [title, setTitle] = useState("");
   const [company, setCompany] = useState("");
   const [location, setLocation] = useState("");
@@ -35,9 +42,9 @@ function AddExperience(props: Props) {
       description
     };
     console.log(experienceData);
+    props.addExperience(experienceData, props.history);
   }
   function handleChange(e: E) {
-    console.log(e.target.name, e.target.value);
     switch (e.target.name) {
       case "title":
         setTitle(e.target.value);
@@ -119,7 +126,7 @@ function AddExperience(props: Props) {
           error={props.errors.to}
           disable={current}
         />
-        <div>
+        <div style={{ marginBottom: "10px" }}>
           <input
             type="checkbox"
             name="current"
@@ -139,7 +146,7 @@ function AddExperience(props: Props) {
           error={props.errors.description}
           info="说明有关工作的相关内容等"
         />
-        <input type="submit" value="提交" />
+        <input type="submit" value="提交" className={styles.submit} />
       </form>
     </div>
   );
@@ -150,4 +157,12 @@ const mapStateToProps = (state: any) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps)(AddExperience);
+const mapDispatchToProps = {
+  addExperience,
+  resetErrors
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(AddExperience);
