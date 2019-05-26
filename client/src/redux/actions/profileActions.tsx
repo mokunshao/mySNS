@@ -8,18 +8,18 @@ import {
 import axios from "axios";
 
 export const getCurrentProfile = () => (dispatch: Function) => {
-  dispatch(setProfileLoading());
-  axios
-    .get("/api/profile")
-    .then(res => {
-      dispatch({ type: GET_PROFILE, payload: res.data });
-    })
-    .catch(() => {
-      dispatch({
-        type: GET_PROFILE,
-        payload: {}
-      });
-    });
+    dispatch(setProfileLoading());
+    axios
+      .get("/api/profile")
+      .then(res => {
+        dispatch({ type: GET_PROFILE, payload: res.data });
+      })
+      .catch(() => {
+        dispatch({
+          type: GET_PROFILE,
+          payload: {}
+        });
+  });
 };
 
 export const setProfileLoading = () => (dispatch: Function) => {
@@ -37,6 +37,7 @@ export const clearProfile = () => {
 export const createProfile = (profileData: any, history: any) => (
   dispatch: Function
 ) => {
+  console.log(profileData)
   axios
     .post("/api/profile", profileData)
     .then(() => {
