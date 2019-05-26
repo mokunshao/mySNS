@@ -178,7 +178,7 @@ function EditProfile(props: Props) {
           value={handle}
           onChange={handleChange}
           type="text"
-          errors={props.errors.handle}
+          error={props.errors.handle}
           placeholder="* handle"
           info="此处的 handle 是在后端接口中需要用来查询数据的, 通常是写你 email 的名字"
         />
@@ -187,7 +187,7 @@ function EditProfile(props: Props) {
           name="status"
           value={status}
           onChange={handleChange}
-          errors={props.errors.status}
+          error={props.errors.status}
           info="请告知我们您目前所从事的岗位"
         />
         <TextFieldGroup
@@ -195,7 +195,7 @@ function EditProfile(props: Props) {
           value={company}
           onChange={handleChange}
           type="text"
-          errors={props.errors.company}
+          error={props.errors.company}
           placeholder="公司"
           info="公司"
         />
@@ -204,7 +204,7 @@ function EditProfile(props: Props) {
           value={website}
           onChange={handleChange}
           type="text"
-          errors={props.errors.website}
+          error={props.errors.website}
           placeholder="网址"
           info="网址"
         />
@@ -213,7 +213,7 @@ function EditProfile(props: Props) {
           value={location}
           onChange={handleChange}
           type="text"
-          errors={props.errors.location}
+          error={props.errors.location}
           placeholder="地点"
           info="地点"
         />
@@ -222,7 +222,7 @@ function EditProfile(props: Props) {
           value={skills}
           onChange={handleChange}
           type="text"
-          errors={props.errors.skills}
+          error={props.errors.skills}
           placeholder="* 编程技能"
           info="技能( 例如 HTML,CSS,JavaScript,PHP )"
         />
@@ -231,7 +231,7 @@ function EditProfile(props: Props) {
           value={github}
           onChange={handleChange}
           type="text"
-          errors={props.errors.github}
+          error={props.errors.github}
           placeholder="Github 用户名"
           info="Github 用户名"
         />
@@ -239,7 +239,7 @@ function EditProfile(props: Props) {
           name="bio"
           value={bio}
           onChange={handleChange}
-          errors={props.errors.bio}
+          error={props.errors.bio}
           placeholder="个人介绍"
           info="个人介绍"
         />
@@ -261,7 +261,7 @@ function EditProfile(props: Props) {
                 name="qq"
                 value={qq}
                 onChange={handleChange}
-                errors={props.errors.qq}
+                error={props.errors.qq}
                 placeholder="QQ"
                 icon="qq"
               />
@@ -269,7 +269,7 @@ function EditProfile(props: Props) {
                 name="wechat"
                 value={wechat}
                 onChange={handleChange}
-                errors={props.errors.wechat}
+                error={props.errors.wechat}
                 placeholder="微信"
                 icon="weixin"
               />
@@ -277,7 +277,7 @@ function EditProfile(props: Props) {
                 name="weibo"
                 value={weibo}
                 onChange={handleChange}
-                errors={props.errors.weibo}
+                error={props.errors.weibo}
                 placeholder="微博"
                 icon="weibo"
               />

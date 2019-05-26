@@ -15,6 +15,7 @@ import Dashboard from "./components/Dashboard";
 import PrivateRoute from './components/PrivateRoute'
 import CreateProfile from "./components/CreateProfile";
 import EditProfile from "./components/EditProfile";
+import AddExperience from './components/AddExperience'
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -41,6 +42,7 @@ const App: React.FC = () => {
               <PrivateRoute exact path={"/dashboard"} component={Dashboard} />
               <PrivateRoute exact path={"/create-profile"} component={CreateProfile}></PrivateRoute>
               <PrivateRoute exact path={"/edit-profile"} component={EditProfile}></PrivateRoute>
+              <PrivateRoute exact path={'/add-experience'} component={AddExperience}></PrivateRoute>
             </Switch>
           </div>
           <Footer />

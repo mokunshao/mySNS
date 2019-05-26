@@ -62,7 +62,7 @@ function Login(props: Props): React.ReactElement {
           onChange={handleChange}
           type="email"
           placeholder="邮箱"
-          errors={props.errors.email}
+          error={props.errors.email}
         />
         <TextFieldGroup
           name={"password"}
@@ -70,7 +70,7 @@ function Login(props: Props): React.ReactElement {
           onChange={handleChange}
           type="password"
           placeholder="密码"
-          errors={props.errors.password}
+          error={props.errors.password}
         />
         <button onSubmit={handleSubmit}>登录</button>
       </form>

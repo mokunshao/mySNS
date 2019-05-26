@@ -68,7 +68,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="text"
           placeholder="用户名"
-          errors={props.errors.username}
+          error={props.errors.username}
         />
         <TextFieldGroup
           name={"email"}
@@ -76,7 +76,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="email"
           placeholder="邮箱"
-          errors={props.errors.email}
+          error={props.errors.email}
         />
         <TextFieldGroup
           name={"password"}
@@ -84,7 +84,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="password"
           placeholder="密码"
-          errors={props.errors.password}
+          error={props.errors.password}
         />
         <TextFieldGroup
           name={"password2"}
@@ -92,7 +92,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="password"
           placeholder="确认密码"
-          errors={props.errors.password2}
+          error={props.errors.password2}
         />
         <button onSubmit={handleSubmit}>注册</button>
       </form>

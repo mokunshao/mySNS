@@ -10,7 +10,7 @@ interface Props {
   value: string;
   onChange: any;
   type?: string;
-  errors: any;
+  error: any;
   placeholder: string;
   icon: string;
 }
@@ -20,7 +20,7 @@ export default function InputGroup({
   value,
   onChange,
   type = "text",
-  errors,
+  error,
   placeholder,
   icon
 }: Props) {
@@ -30,14 +30,14 @@ export default function InputGroup({
         <FontAwesomeIcon icon={["fab", icon as IconName]} />
       </div>
       <input
-        className={errors ? styles.invalid : ""}
+        className={error ? styles.invalid : ""}
         name={name}
         value={value}
         onChange={onChange}
         type={type}
         placeholder={placeholder}
       />
-      {errors && <div className={styles.invalidFeedback}>{errors}</div>}
+      {error && <div className={styles.invalidFeedback}>{error}</div>}
     </div>
   );
 }

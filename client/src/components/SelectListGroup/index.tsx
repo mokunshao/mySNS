@@ -5,7 +5,7 @@ interface Props {
   name: string;
   value: string;
   onChange: any;
-  errors: any;
+  error: any;
   options: Array<any>;
   info:string;
 }
@@ -14,7 +14,7 @@ export default function SelectListGroup({
   name,
   value,
   onChange,
-  errors,
+  error,
   options,
   info
 }: Props) {
@@ -26,7 +26,7 @@ export default function SelectListGroup({
   return (
     <div className={styles.SelectArea}>
       <select
-        className={errors ? styles.invalid : ""}
+        className={error ? styles.invalid : ""}
         name={name}
         value={value}
         onChange={onChange}
@@ -34,7 +34,7 @@ export default function SelectListGroup({
         {selectOptions}
       </select>
       {info && <small className={styles.info}>{info}</small>}
-      {errors && <div className={styles.invalidFeedback}>{errors}</div>}
+      {error && <div className={styles.invalidFeedback}>{error}</div>}
     </div>
   );
 }
