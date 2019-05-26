@@ -37,7 +37,6 @@ export const clearProfile = () => {
 export const createProfile = (profileData: any, history: any) => (
   dispatch: Function
 ) => {
-  console.log(profileData)
   axios
     .post("/api/profile", profileData)
     .then(() => {

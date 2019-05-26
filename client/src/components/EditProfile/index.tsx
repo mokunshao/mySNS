@@ -97,15 +97,9 @@ function EditProfile(props: Props) {
     }
     if (props.profile.profile.social) {
       const { qq, weibo, wechat } = props.profile.profile.social;
-      if (typeof props.profile.profile.social.qq === "string") {
-        setQQ(qq);
-      }
-      if (typeof props.profile.profile.social.wechat === "string") {
-        setWechat(wechat);
-      }
-      if (typeof props.profile.profile.social.weibo === "string") {
-        setWeibo(weibo);
-      }
+      setQQ(qq);
+      setWechat(wechat);
+      setWeibo(weibo);
     }
   }, [props.profile.profile]);
 
