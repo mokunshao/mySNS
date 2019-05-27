@@ -8,17 +8,18 @@ import Loading from "../Loading";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import ProfileActivities from "../ProfileActivities";
-import Experience from '../Experience'
+import Experience from "../Experience";
+import Education from "../Education";
 
 interface Props {
   profile: any;
   getCurrentProfile: Function;
   auth: any;
-  deleteAccount:Function;
+  deleteAccount: Function;
 }
 function Dashboard(props: Props) {
   function handleDeleteAccount() {
-    props.deleteAccount()
+    props.deleteAccount();
   }
   let dashboardContent;
   if (!props.profile.profile || props.profile.loading) {
@@ -31,7 +32,8 @@ function Dashboard(props: Props) {
           {props.profile.profile.user.username}
         </Link>
         <ProfileActivities />
-        <Experience data={props.profile.profile.experience}/>
+        <Experience data={props.profile.profile.experience} />
+        <Education data={props.profile.profile.education} />
         <button
           type="button"
           onClick={handleDeleteAccount}

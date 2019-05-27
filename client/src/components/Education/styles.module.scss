@@ -1,0 +1,29 @@
+.education {
+  h4 {
+    margin: 15px 0px 0px 0px;
+  }
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    tr {
+      th,
+      td {
+        padding: 8px;
+        border-bottom: 2px solid #ddd;
+      }
+    }
+    button {
+      background: #dc3545;
+      color: white;
+      border: none;
+      outline: none;
+      padding: 6px 12px;
+      border-radius: 4px;
+      cursor: pointer;
+      &:hover{
+        background: darken($color: #dc3545, $amount: 10%)
+      }
+    }
+  }
+}

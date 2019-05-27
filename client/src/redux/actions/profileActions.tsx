@@ -94,3 +94,9 @@ export const deleteExperience = (id: any) => (dispatch: Function) => {
     dispatch({ type: GET_PROFILE, payload: res.data });
   });
 };
+
+export const deleteEducation = (id: any) => (dispatch: Function) => {
+  axios.delete(`/api/profile/education/${id}`).then(res => {
+    dispatch({ type: GET_PROFILE, payload: res.data });
+  });
+};
