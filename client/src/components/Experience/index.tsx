@@ -8,9 +8,6 @@ interface Props {
 }
 
 function Experience(props: Props) {
-  function deleteItem(id: string) {
-    console.log(id);
-  }
   const experienceData = props.data.map((item: any) => (
     <tr key={item._id}>
       <td>{item.company}</td>
