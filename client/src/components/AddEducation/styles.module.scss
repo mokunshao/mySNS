@@ -1,5 +1,4 @@
-.Dashboard{
-  color: #212529;
+.AddEducation {
   background: white;
   width: 768px;
   margin: 0 auto;
@@ -8,32 +7,37 @@
   margin-top: 15px;
   border-radius: 4px;
   box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-  h1{
+  h1 {
+    margin-top: 0;
     font-size: 19px;
     line-height: 25px;
     font-weight: 400;
     -webkit-font-smoothing: subpixel-antialiased;
+    text-align: center;
   }
-  div{
-    font-size: 15px;
-    line-height: 150%;
+  h6{
+    margin: 10px 0;
   }
   .button {
+    color: #212529;
+    background-color: #f8f9fa;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($color: #f8f9fa, $amount: 10%);
+    }
+  }
+  .submit {
     background: #4a76a8;
     border: none;
     outline: none;
     color: white;
     padding: 12px;
+    width: 100%;
     border-radius: 4px;
-    display: inline-block;
-    text-decoration: none;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  .delete{
-    background: #dc3545;
-    &:hover{
-      background: darken($color: #dc3545, $amount: 10%)
-    }
   }
 }

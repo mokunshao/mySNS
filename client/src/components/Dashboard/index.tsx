@@ -8,6 +8,8 @@ import Loading from "../Loading";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.scss";
 import ProfileActivities from "../ProfileActivities";
+import Experience from '../Experience'
+
 interface Props {
   profile: any;
   getCurrentProfile: Function;
@@ -29,6 +31,7 @@ function Dashboard(props: Props) {
           {props.profile.profile.user.username}
         </Link>
         <ProfileActivities />
+        <Experience data={props.profile.profile.experience}/>
         <button
           type="button"
           onClick={handleDeleteAccount}

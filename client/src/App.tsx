@@ -12,10 +12,11 @@ import setAuthToken from "./utils/setAuthToken";
 import jwt_decode from "jwt-decode";
 import { SET_CURRENT_USER } from "./redux/actionTypes";
 import Dashboard from "./components/Dashboard";
-import PrivateRoute from './components/PrivateRoute'
+import PrivateRoute from "./components/PrivateRoute";
 import CreateProfile from "./components/CreateProfile";
 import EditProfile from "./components/EditProfile";
-import AddExperience from './components/AddExperience'
+import AddExperience from "./components/AddExperience";
+import AddEducation from "./components/AddEducation";
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -40,9 +41,26 @@ const App: React.FC = () => {
               <Route exact path={"/login"} component={Login} />
               <Route exact path={"/register"} component={Register} />
               <PrivateRoute exact path={"/dashboard"} component={Dashboard} />
-              <PrivateRoute exact path={"/create-profile"} component={CreateProfile}></PrivateRoute>
-              <PrivateRoute exact path={"/edit-profile"} component={EditProfile}></PrivateRoute>
-              <PrivateRoute exact path={'/add-experience'} component={AddExperience}></PrivateRoute>
+              <PrivateRoute
+                exact
+                path={"/create-profile"}
+                component={CreateProfile}
+              />
+              <PrivateRoute
+                exact
+                path={"/edit-profile"}
+                component={EditProfile}
+              />
+              <PrivateRoute
+                exact
+                path={"/add-experience"}
+                component={AddExperience}
+              />
+              <PrivateRoute
+                exact
+                path={"/add-education"}
+                component={AddEducation}
+              />
             </Switch>
           </div>
           <Footer />

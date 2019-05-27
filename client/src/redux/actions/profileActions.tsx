@@ -72,3 +72,25 @@ export const addExperience = (data: any, history: any) => (
       });
     });
 };
+
+export const addEducation = (data: any, history: any) => (
+  dispatch: Function
+) => {
+  axios
+    .post("/api/profile/education", data)
+    .then(() => {
+      history.push("/dashboard");
+    })
+    .catch(err => {
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      });
+    });
+};
+
+export const deleteExperience = (id: any) => (dispatch: Function) => {
+  axios.delete(`/api/profile/experience/${id}`).then(res => {
+    dispatch({ type: GET_PROFILE, payload: res.data });
+  });
+};
