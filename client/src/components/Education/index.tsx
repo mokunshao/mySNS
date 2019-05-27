@@ -17,12 +17,21 @@ function Education(props: Props) {
         {item.from} 至 {item.to === "" ? "至今" : item.to}
       </td>
       <td>
-        <button onClick={() => props.deleteEducation(item._id)} className="btn btn-danger">
+        <button
+          onClick={() => props.deleteEducation(item._id)}
+          className="btn btn-danger"
+        >
           删除
         </button>
       </td>
     </tr>
   ));
+
+  const emptyEducationData = (
+    <tr>
+      <td colSpan={4} className={styles.noData}>无数据</td>
+    </tr>
+  );
 
   return (
     <div className={styles.education}>
@@ -36,7 +45,9 @@ function Education(props: Props) {
             <th />
           </tr>
         </thead>
-        <tbody>{educationData}</tbody>
+        <tbody>
+          {props.data.length > 0 ? educationData : emptyEducationData}
+        </tbody>
       </table>
     </div>
   );

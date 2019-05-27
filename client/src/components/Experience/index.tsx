@@ -16,13 +16,22 @@ function Experience(props: Props) {
         {item.from} 至 {item.to === "" ? "至今" : item.to}
       </td>
       <td>
-        <button onClick={() => props.deleteExperience(item._id)} className="btn btn-danger">
+        <button
+          onClick={() => props.deleteExperience(item._id)}
+          className="btn btn-danger"
+        >
           删除
         </button>
       </td>
     </tr>
   ));
-
+  const emptyEducationData = (
+    <tr>
+      <td colSpan={4} className={styles.noData}>
+        无数据
+      </td>
+    </tr>
+  );
   return (
     <div className={styles.experience}>
       <h4>个人履历</h4>
@@ -35,7 +44,9 @@ function Experience(props: Props) {
             <th />
           </tr>
         </thead>
-        <tbody>{experienceData}</tbody>
+        <tbody>
+          {props.data.length > 0 ? experienceData : emptyEducationData}
+        </tbody>
       </table>
     </div>
   );
