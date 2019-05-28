@@ -137,7 +137,7 @@ router.get("/user/:user_id", (req, res) => {
 router.get("/all", (req, res) => {
   const errors = {};
   Profile.find()
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["username", "avatar"])
     .then(profiles => {
       if (!profiles) {
         errors.noprofile = "没有任何用户信息";

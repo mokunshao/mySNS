@@ -1,0 +1,60 @@
+.profileItem {
+  background: #f8f9fa;
+  display: flex;
+  padding: 20px;
+  border-radius: 4px;
+  color: #212529;
+  margin-bottom: 10px;
+  .avatar {
+    img {
+      border-radius: 50%;
+      width: 150px;
+    }
+  }
+  .info {
+    margin-left: 20px;
+    flex: 1;
+    h3 {
+      margin-top: 0px;
+      font-weight: 500;
+    }
+    h3,
+    p {
+      text-align: left;
+    }
+    a {
+      background: #4a76a8;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 12px;
+      border-radius: 4px;
+      display: inline-block;
+      text-decoration: none;
+      margin-top: 10px;
+      cursor: pointer;
+    }
+  }
+  .skills {
+    h4 {
+      margin: 0px;
+      font-weight: 500;
+    }
+    ul {
+      padding: 0;
+      li {
+        list-style: none;
+        min-width: 150px;
+        position: relative;
+        padding: 0.75rem 1.25rem;
+        margin-bottom: -1px;
+        background-color: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        svg{
+          margin-right: 10px;
+          vertical-align: text-bottom;
+        }
+      }
+    }
+  }
+}

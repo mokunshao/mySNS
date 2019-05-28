@@ -17,6 +17,7 @@ import CreateProfile from "./components/CreateProfile";
 import EditProfile from "./components/EditProfile";
 import AddExperience from "./components/AddExperience";
 import AddEducation from "./components/AddEducation";
+import Profiles from "./components/Profiles";
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -61,6 +62,7 @@ const App: React.FC = () => {
                 path={"/add-education"}
                 component={AddEducation}
               />
+              <Route exact paths={"/profiles"} component={Profiles} />
             </Switch>
           </div>
           <Footer />

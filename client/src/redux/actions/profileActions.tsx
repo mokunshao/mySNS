@@ -1,5 +1,6 @@
 import {
   GET_PROFILE,
+  GET_PROFILES,
   PROFILE_LOADING,
   CLEAR_CURRENT_PROFILE,
   GET_ERRORS,
@@ -99,4 +100,22 @@ export const deleteEducation = (id: any) => (dispatch: Function) => {
   axios.delete(`/api/profile/education/${id}`).then(res => {
     dispatch({ type: GET_PROFILE, payload: res.data });
   });
+};
+
+export const getProfiles = () => (dispatch: Function) => {
+  dispatch(setProfileLoading());
+  axios
+    .get("/api/profile/all")
+    .then(res => {
+      dispatch({
+        type: GET_PROFILES,
+        payload: res.data
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: GET_PROFILES,
+        payload: null
+      });
+    });
 };
