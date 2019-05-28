@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Welcome from "./components/Welcome";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import setAuthToken from "./utils/setAuthToken";
@@ -18,6 +18,7 @@ import EditProfile from "./components/EditProfile";
 import AddExperience from "./components/AddExperience";
 import AddEducation from "./components/AddEducation";
 import Profiles from "./components/Profiles";
+import Profile from "./components/Profile";
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -62,7 +63,11 @@ const App: React.FC = () => {
                 path={"/add-education"}
                 component={AddEducation}
               />
-              <Route exact paths={"/profiles"} component={Profiles} />
+              <Route exact path={"/profiles"} component={Profiles} />
+              {/* <Route exact paths={["/profile/:handle",'/profile']} component={Profile} /> */}
+              <Route exact path={"/profile/:handle"} component={Profile} />
+              <Redirect path={"/profile"} to={"/profiles"} />
+              <Route component={Welcome} />
             </Switch>
           </div>
           <Footer />
