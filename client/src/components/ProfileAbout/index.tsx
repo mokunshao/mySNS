@@ -17,7 +17,6 @@ export default function ProfileAbout(props: Props) {
       </span>
     );
   });
-  console.log(props.data.skills);
   return (
     <div className={styles.ProfileAbout}>
       <h3>{props.data.user.username.trim().split(" ")[0]}个人简介</h3>

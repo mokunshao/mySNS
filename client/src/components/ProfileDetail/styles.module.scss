@@ -1,2 +1,35 @@
-.ProfileDetail{
+.ProfileDetail {
+  .part {
+    width: 50%;
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+    vertical-align: top;
+  }
+  h3 {
+    text-align: center;
+    color: #4a76a8;
+    margin-top: 0;
+  }
+  h4 {
+    margin: 0 0 15px;
+    font-weight: 500;
+    font-size: 1.5rem;
+  }
+  P:last-child{
+    margin-bottom: 0;
+  }
+  ul {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    padding: 0;
+    li {
+      padding: 15px;
+      list-style: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+      &:first-child {
+        border-top: none;
+      }
+    }
+  }
 }
