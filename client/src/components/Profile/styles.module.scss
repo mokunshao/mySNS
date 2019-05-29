@@ -1,4 +1,24 @@
-.profile{
+.profile {
   background: white;
   border-radius: 4px;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+  padding: 15px;
+  button {
+    color: #212529;
+    background-color: #f8f9fa;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: inline-block;
+    border-radius: 4px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($color: #f8f9fa, $amount: 10%);
+    }
+  }
+  .noUser {
+    text-align: center;
+    padding: 50px;
+  }
 }

@@ -101,7 +101,7 @@ router.post(
 router.get("/handle/:handle", (req, res) => {
   const errors = {};
   Profile.findOne({ handle: req.params.handle })
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["username", "avatar"])
     .then(profile => {
       if (!profile) {
         errors.noprofile = "未找到该用户信息";

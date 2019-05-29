@@ -6,32 +6,47 @@ import ProfileDetail from "../ProfileDetail";
 import ProfileGithub from "../ProfileGithub";
 import { connect } from "react-redux";
 import { getProfileByHandle } from "../../redux/actions/profileActions";
+import Loading from "../Loading";
 
 interface Props {
   match: any;
   getProfileByHandle: Function;
   profile: any;
+  history: any;
 }
 
 function Profile(props: Props) {
   useEffect(() => {
     props.getProfileByHandle(props.match.params.handle);
-    console.log(props.match.params.handle);
   }, []);
-  return (
-    <div className={styles.profile}>
-      {props.profile.profile ? (
+  let mainContent;
+  if (props.profile.loading) {
+    mainContent = <Loading />;
+  } else {
+    if (props.profile.profile) {
+      mainContent = (
         <>
-          <ProfileHeader />
-          <ProfileAbout />
-          <ProfileDetail />
-          <ProfileGithub />
+          <div>
+            <button
+              className={styles.button}
+              onClick={() => {
+                props.history.go(-1);
+              }}
+            >
+              返回
+            </button>
+          </div>
+          <ProfileHeader data={props.profile.profile}/>
+          <ProfileAbout data={props.profile.profile}/>
+          <ProfileDetail data={props.profile.profile}/>
+          <ProfileGithub data={props.profile.profile}/>
         </>
-      ) : (
-        <div>没有该用户</div>
-      )}
-    </div>
-  );
+      );
+    } else {
+      mainContent = <div className={styles.noUser}>没有该用户</div>;
+    }
+  }
+  return <div className={styles.profile}>{mainContent}</div>;
 }
 
 const mapStateToProps = (state: any) => {
