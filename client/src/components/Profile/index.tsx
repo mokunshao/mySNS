@@ -36,10 +36,12 @@ function Profile(props: Props) {
               返回
             </button>
           </div>
-          <ProfileHeader data={props.profile.profile}/>
-          <ProfileAbout data={props.profile.profile}/>
-          <ProfileDetail data={props.profile.profile}/>
-          <ProfileGithub data={props.profile.profile}/>
+          <ProfileHeader data={props.profile.profile} />
+          <ProfileAbout data={props.profile.profile} />
+          <ProfileDetail data={props.profile.profile} />
+          {props.profile.profile.github ? (
+            <ProfileGithub data={props.profile.profile} />
+          ) : null}
         </>
       );
     } else {

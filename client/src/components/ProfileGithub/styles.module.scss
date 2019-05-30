@@ -1,2 +1,54 @@
 .ProfileGithub {
+  margin: 0 10px;
+  h3 {
+    color: #4a76a8;
+    margin-top: 0;
+  }
+  .repo {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 4px;
+    padding: 10px;
+    .part {
+      width: 50%;
+      display: inline-block;
+    }
+    .left {
+      h4 {
+        margin: 0;
+        font-weight: 500;
+        font-size: 20px;
+        a {
+          text-decoration: none;
+        }
+      }
+      p {
+        margin-bottom: 0;
+        margin-top: 10px;
+        font-weight: 400;
+      }
+    }
+    .right {
+      vertical-align: top;
+      margin-top: 10px;
+      span {
+        display: inline-block;
+      }
+      .badge {
+        border-radius: 5px;
+        color: #fff;
+        margin-right: 5px;
+        padding: 3px;
+        font-size: 12px;
+        &.Stars {
+          background-color: #17a2b8;
+        }
+        &.Watchers {
+          background-color: #6c757d;
+        }
+        &.Forks {
+          background-color: #28a745;
+        }
+      }
+    }
+  }
 }
