@@ -8,14 +8,15 @@
     border: 1px solid rgba(0, 0, 0, 0.125);
     border-radius: 4px;
     padding: 10px;
+    display: flex;
     &:not(:first-of-type){
       margin-top: 10px;
     }
     .part {
-      width: 50%;
       display: inline-block;
     }
     .left {
+      flex: 1;
       h4 {
         margin: 0;
         font-weight: 500;
@@ -32,7 +33,7 @@
     }
     .right {
       vertical-align: top;
-      margin-top: 10px;
+      margin-left: 10px;
       span {
         display: inline-block;
       }
