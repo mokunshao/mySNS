@@ -7,7 +7,7 @@ interface Props {
   onChange: any;
   error: any;
   placeholder: string;
-  info: string;
+  info?: string;
 }
 
 export default function TextAreaFieldGroup({

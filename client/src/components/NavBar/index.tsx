@@ -24,6 +24,12 @@ function NavBar(props: Props) {
   );
   const authUserActions = (
     <div className={styles.actions}>
+      <Link to={"/feed"} className={styles.button} style={{fontWeight:'400'}}>
+        留言板
+      </Link>
+      <Link to={"/dashboard"} className={styles.button} style={{fontWeight:'400'}}>
+        仪表盘
+      </Link>
       <img
         className={styles.avatar}
         src={props.auth.user.avatar}

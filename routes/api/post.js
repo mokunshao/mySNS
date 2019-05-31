@@ -31,7 +31,7 @@ router.post("/",passport.authenticate('jwt', { session: false }),(req,res) => {
 
   const newPost = new Post({
     text:req.body.text,
-    name:req.body.name,
+    username:req.body.username,
     avatar:req.body.avatar,
     user:req.user.id
   });
@@ -135,7 +135,7 @@ router.post("/comment/:id",passport.authenticate('jwt', { session: false }),(req
       .then(post => {
         const newComment = {
           text:req.body.text,
-          name:req.body.name,
+          username:req.body.username,
           avatar:req.body.avatar,
           user:req.user.id
         }

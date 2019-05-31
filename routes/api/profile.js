@@ -28,7 +28,7 @@ router.get(
       .populate("user", ["username", "avatar"])
       .then(profile => {
         if (!profile) {
-          errors.noprofile = "该用户的信息不存在~!";
+          errors.noprofile = "该用户的信息不存在!";
           return res.status(404).json(errors);
         }
         res.json(profile);

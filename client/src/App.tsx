@@ -19,6 +19,7 @@ import AddExperience from "./components/AddExperience";
 import AddEducation from "./components/AddEducation";
 import Profiles from "./components/Profiles";
 import Profile from "./components/Profile";
+import Posts from './components/Posts'
 
 const App: React.FC = () => {
   if (localStorage.msToken) {
@@ -67,6 +68,7 @@ const App: React.FC = () => {
               {/* <Route exact paths={["/profile/:handle",'/profile']} component={Profile} /> */}
               <Route exact path={"/profile/:handle"} component={Profile} />
               <Redirect path={"/profile"} to={"/profiles"} />
+              <PrivateRoute exact path={"/feed"} component={Posts} />
               <Route component={Welcome} />
             </Switch>
           </div>
