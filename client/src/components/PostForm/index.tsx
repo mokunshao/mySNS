@@ -10,6 +10,7 @@ import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import { connect } from "react-redux";
 import { resetErrors } from "../../redux/actions/authActions";
 import { addPost } from "../../redux/actions/postActions";
+import styles from './styles.module.scss'
 
 interface Props {
   resetErrors: Function;
@@ -37,8 +38,8 @@ function PostForm(props: Props) {
     setText(e.target.value);
   }
   return (
-    <div>
-      <div>随便说点啥..</div>
+    <div className={styles.PostForm}>
+      <div className={styles.header}>随便说点啥..</div>
       <form onSubmit={onSubmit}>
         <TextAreaFieldGroup
           placeholder="留言说点.."
@@ -46,6 +47,7 @@ function PostForm(props: Props) {
           value={text}
           onChange={onChange}
           error={props.errors.text}
+          style={{marginBottom:'5px'}}
         />
         <button type="submit">提交</button>
       </form>

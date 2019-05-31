@@ -8,6 +8,7 @@ interface Props {
   error: any;
   placeholder: string;
   info?: string;
+  style?: object;
 }
 
 export default function TextAreaFieldGroup({
@@ -16,10 +17,11 @@ export default function TextAreaFieldGroup({
   onChange,
   error,
   placeholder,
-  info
+  info,
+  style
 }: Props) {
   return (
-    <div className={styles.TextArea}>
+    <div className={styles.TextArea} style={style}>
       <textarea
         className={error ? styles.invalid : ""}
         name={name}
