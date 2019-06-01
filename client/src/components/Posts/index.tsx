@@ -14,10 +14,10 @@ function Posts(props: Props) {
     props.getPosts();
   }, []);
   let content;
-  if (props.post.loading) {
+  if (props.post.loading && Object.keys(props.post.posts).length === 0) {
     content = <Loading />;
   } else {
-    content = <PostFeed posts={props.post.posts}/>;
+    content = <PostFeed posts={props.post.posts} />;
   }
   return (
     <div>

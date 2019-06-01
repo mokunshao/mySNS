@@ -3,7 +3,8 @@ import {
   GET_POST,
   GET_POSTS,
   POST_LOADDING,
-  GET_ERRORS
+  GET_ERRORS,
+  DELETE_POST
 } from "../actionTypes";
 import axios from "axios";
 
@@ -50,4 +51,21 @@ export const setPostLoading = () => {
   return {
     type: POST_LOADDING
   };
+};
+
+export const deletePost = (id: string) => (dispatch: Function) => {
+  axios.delete(`/api/posts/${id}`).then(() => {
+    dispatch({
+      type: DELETE_POST,
+      payload: id
+    });
+  });
+};
+
+export const addLike = (id: string) => (dispatch: Function) => {
+  axios.post(`/api/posts/like/${id}`).then(() => dispatch(getPosts()));
+};
+
+export const removeLike = (id: string) => (dispatch: Function) => {
+  axios.post(`/api/posts/unlike/${id}`).then(() => dispatch(getPosts()));
 };
