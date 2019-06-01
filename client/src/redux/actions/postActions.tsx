@@ -69,3 +69,10 @@ export const addLike = (id: string) => (dispatch: Function) => {
 export const removeLike = (id: string) => (dispatch: Function) => {
   axios.post(`/api/posts/unlike/${id}`).then(() => dispatch(getPosts()));
 };
+
+export const getPost = (id: string) => (dispatch: Function) => {
+  dispatch(setPostLoading());
+  axios
+    .get(`/api/posts/${id}`)
+    .then(res => dispatch({ type: GET_POST, payload: res.data }));
+};

@@ -35,10 +35,16 @@ export default function(state = initialState, action: Action) {
         posts: action.payload,
         loading: false
       };
+    case GET_POST:
+      return {
+        ...state,
+        post: action.payload,
+        loading: false
+      };
     case DELETE_POST:
       return {
         ...state,
-        posts: state.posts.filter((post:any) => post._id !== action.payload)
+        posts: state.posts.filter((post: any) => post._id !== action.payload)
       };
     default:
       return state;
