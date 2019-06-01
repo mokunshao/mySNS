@@ -34,6 +34,19 @@
         margin-left: 3px;
       }
     }
+    &.checked {
+      background: #4a76a8;
+      color: white;
+      padding: 5px;
+      border-radius: 4px;
+      width: 4em;
+      &:hover {
+        background: darken($color: #4a76a8, $amount: 5%);
+      }
+      span {
+        margin-left: 3px;
+      }
+    }
     &.comment {
       background: #4a76a8;
       color: white;

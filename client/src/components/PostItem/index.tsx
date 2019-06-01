@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./styles.module.scss";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -23,14 +23,27 @@ interface Props {
 }
 
 function PostItem(props: Props) {
-  function findUserLike() {
-    if (
-      props.post.likes.filter((item: any) => item.user === props.auth.user.id)
-        .length > 0
-    ) {
-      return true;
+  const [isLike, setIsLike] = useState(false);
+  useEffect(() => {
+    if (props.post.likes) {
+      if (
+        props.post.likes.filter((item: any) => item.user === props.auth.user.id)
+          .length > 0
+      ) {
+        return setIsLike(true);
+      }
+      return setIsLike(false);
     }
-    return false;
+  }, [props.post.likes]);
+  function handleAddLike() {
+    if (!isLike) {
+      props.addLike(props.post._id);
+    }
+  }
+  function handleRemoveLike() {
+    if (isLike) {
+      props.removeLike(props.post._id);
+    }
   }
   return (
     <div className={styles.PostItem}>
@@ -45,8 +58,8 @@ function PostItem(props: Props) {
           <span>
             <button
               type="button"
-              className={styles.thumbs}
-              onClick={() => props.addLike(props.post._id)}
+              className={isLike ? styles.checked : styles.thumbs}
+              onClick={handleAddLike}
             >
               <FontAwesomeIcon icon="thumbs-up" />
               {props.post.likes ? <span>{props.post.likes.length}</span> : null}
@@ -54,7 +67,7 @@ function PostItem(props: Props) {
             <button
               type="button"
               className={styles.thumbs}
-              onClick={() => props.removeLike(props.post._id)}
+              onClick={handleRemoveLike}
             >
               <FontAwesomeIcon icon="thumbs-down" />
             </button>
