@@ -54,11 +54,13 @@ export const setPostLoading = () => {
 };
 
 export const deletePost = (id: string) => (dispatch: Function) => {
-  axios.delete(`/api/posts/${id}`).then(() => {
+  axios.delete(`/api/posts/${id}`).then(res => {
     dispatch({
       type: DELETE_POST,
       payload: id
     });
+    // 也可以用一下方法
+    // dispatch(getPosts());
   });
 };
 

@@ -14,7 +14,7 @@ export default function ProfileGithub(props: Props) {
     )
       .then(response => response.json())
       .then(json => setRepos(json));
-  });
+  }, []);
   const repoItems = repos.map((repo: any) => (
     <div key={repo.id} className={styles.repo}>
       <div className={`${styles.part} ${styles.left}`}>
@@ -26,9 +26,15 @@ export default function ProfileGithub(props: Props) {
         <p>{repo.description}</p>
       </div>
       <div className={`${styles.part} ${styles.right}`}>
-        <span className={`${styles.badge} ${styles.Stars}`}>Stars: {repo.stargazers_count}</span>
-        <span className={`${styles.badge} ${styles.Watchers}`}>Watchers: {repo.watchers_count}</span>
-        <span className={`${styles.badge} ${styles.Forks}`}>Forks: {repo.forks_count}</span>
+        <span className={`${styles.badge} ${styles.Stars}`}>
+          Stars: {repo.stargazers_count}
+        </span>
+        <span className={`${styles.badge} ${styles.Watchers}`}>
+          Watchers: {repo.watchers_count}
+        </span>
+        <span className={`${styles.badge} ${styles.Forks}`}>
+          Forks: {repo.forks_count}
+        </span>
       </div>
     </div>
   ));
