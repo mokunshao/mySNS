@@ -119,7 +119,7 @@ router.get("/handle/:handle", (req, res) => {
 router.get("/user/:user_id", (req, res) => {
   const errors = {};
   Profile.findOne({ user: req.params.user_id })
-    .populate("user", ["name", "avatar"])
+    .populate("user", ["username", "avatar"])
     .then(profile => {
       if (!profile) {
         errors.noprofile = "未找到该用户信息";

@@ -81,7 +81,7 @@ router.delete("/:id",passport.authenticate('jwt', { session: false }),(req,res) 
 // @desc   点赞接口
 // @access Private
 router.post("/like/:id",passport.authenticate('jwt', { session: false }),(req,res) => {
-  Profile.findOne({user:req.user.id}).then(profile => {
+  // Profile.findOne({user:req.user.id}).then(() => {
     Post.findById(req.params.id)
         .then(post => {
           if(post.likes.filter(like => like.user.toString() === req.user.id).length > 0){
@@ -93,7 +93,7 @@ router.post("/like/:id",passport.authenticate('jwt', { session: false }),(req,re
           post.save().then(post => res.json(post))
         })
         .catch(err => res.status(404).json({likederror:"点赞错误"}))
-  })
+  // })
 })
 
 
@@ -101,7 +101,7 @@ router.post("/like/:id",passport.authenticate('jwt', { session: false }),(req,re
 // @desc   取消点赞接口
 // @access Private
 router.post("/unlike/:id",passport.authenticate('jwt', { session: false }),(req,res) => {
-  Profile.findOne({user:req.user.id}).then(profile => {
+  // Profile.findOne({user:req.user.id}).then(() => {
     Post.findById(req.params.id)
         .then(post => {
           if(post.likes.filter(like => like.user.toString() === req.user.id).length === 0){
@@ -116,7 +116,7 @@ router.post("/unlike/:id",passport.authenticate('jwt', { session: false }),(req,
           post.save().then(post => res.json(post))
         })
         .catch(err => res.status(404).json({likederror:"取消点赞错误"}))
-  })
+  // })
 })
 
 // $route  POST api/posts/comment/:id

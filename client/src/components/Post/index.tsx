@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import { getPost } from "../../redux/actions/postActions";
 import Loading from "../Loading";
 import PostItem from "../PostItem";
+import CommentForm from "../CommentForm";
+import CommentFeed from '../CommentFeed'
 
 interface Props {
   history: any;
@@ -21,11 +23,17 @@ function Post(props: Props) {
     postContent = <Loading />;
   }
   if (props.post.post) {
-    postContent = <PostItem post={props.post.post} showActions={false} />;
+    postContent = (
+      <>
+        <PostItem post={props.post.post} showActions={false} />
+        <CommentForm postId={props.post.post._id}/>
+        <CommentFeed postId={props.post.post._id} comments={props.post.post.comments}/>
+      </>
+    );
   }
   return (
     <div className={styles.Post}>
-      <div>
+      <div style={{ marginBottom: "5px" }}>
         <button
           className={styles.button}
           onClick={() => {

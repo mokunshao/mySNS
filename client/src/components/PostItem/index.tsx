@@ -60,7 +60,7 @@ function PostItem(props: Props) {
             </button>
             <Link to={`/post/${props.post._id}`}>
               <button type="button" className={styles.comment}>
-                <span>鼓励留言</span>
+                <span>回复</span>
               </button>
             </Link>
             {props.post.user === props.auth.user.id ? (

@@ -1,35 +1,31 @@
-import React, {
-  useState,
-  useEffect,
-  ChangeEvent,
-  FormEvent,
-} from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import { connect } from "react-redux";
 import { resetErrors } from "../../redux/actions/authActions";
-import { addPost } from "../../redux/actions/postActions";
-import styles from './styles.module.scss'
+import { addComment } from "../../redux/actions/postActions";
+import styles from "./styles.module.scss";
 
 interface Props {
   resetErrors: Function;
   errors: any;
   auth: any;
-  addPost: Function;
+  addComment: Function;
+  postId: string;
 }
 
-function PostForm(props: Props) {
+function CommentForm(props: Props) {
   useEffect(() => {
     props.resetErrors();
   }, []);
   const [text, setText] = useState("");
   function onSubmit(e: FormEvent) {
     e.preventDefault();
-    const newPost = {
+    const newComment = {
       text,
       username: props.auth.user.username,
       avatar: props.auth.user.avatar
     };
-    props.addPost(newPost);
+    props.addComment(props.postId, newComment);
     setText("");
   }
   function onChange(e: ChangeEvent<HTMLInputElement>) {
@@ -45,7 +41,7 @@ function PostForm(props: Props) {
           value={text}
           onChange={onChange}
           error={props.errors.text}
-          style={{marginBottom:'5px'}}
+          style={{ marginBottom: "5px" }}
         />
         <button type="submit">提交</button>
       </form>
@@ -60,10 +56,10 @@ const mapStateToProps = (state: any) => ({
 
 const mapDispatchToProps = {
   resetErrors,
-  addPost
+  addComment
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PostForm);
+)(CommentForm);

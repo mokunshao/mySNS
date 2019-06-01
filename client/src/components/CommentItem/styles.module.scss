@@ -1,4 +1,4 @@
-.PostItem {
+.CommentItem {
   margin-bottom: 15px;
   background: white;
   border-radius: 4px;
@@ -21,28 +21,6 @@
     margin-right: 5px;
     line-height: 1.5;
     margin-bottom: 10px;
-    &.thumbs {
-      background: #edeef0;
-      color: #6c757d;
-      padding: 5px;
-      border-radius: 4px;
-      width: 4em;
-      &:hover {
-        background: darken($color: #edeef0, $amount: 5%);
-      }
-      span {
-        margin-left: 3px;
-      }
-    }
-    &.comment {
-      background: #4a76a8;
-      color: white;
-      padding: 5px;
-      border-radius: 4px;
-      &:hover {
-        background: darken($color: #4a76a8, $amount: 5%);
-      }
-    }
     &.delete {
       background: #dc3545;
       color: white;

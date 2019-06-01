@@ -76,3 +76,26 @@ export const getPost = (id: string) => (dispatch: Function) => {
     .get(`/api/posts/${id}`)
     .then(res => dispatch({ type: GET_POST, payload: res.data }));
 };
+
+export const addComment = (id: string, newComment: any) => (
+  dispatch: Function
+) => {
+  axios
+    .post(`/api/posts/comment/${id}`, newComment)
+    .then(res => {
+      dispatch({ type: GET_POST, payload: res.data });
+      dispatch({ type: GET_ERRORS, payload: {} });
+    })
+    .catch(err => dispatch({ type: GET_ERRORS, payload: err.response.data }));
+};
+
+export const deleteComment = (postId: string, commentId: string) => (
+  dispatch: Function
+) => {
+  axios.delete(`/api/posts/comment/${postId}/${commentId}`).then(res => {
+    dispatch({
+      type: GET_POST,
+      payload: res.data
+    });
+  });
+};

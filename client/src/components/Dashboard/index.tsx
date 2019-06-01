@@ -22,9 +22,12 @@ function Dashboard(props: Props) {
     props.deleteAccount();
   }
   let dashboardContent;
-  if (!props.profile.profile || props.profile.loading) {
+  if (!props.profile.profile && props.profile.loading) {
     dashboardContent = <Loading />;
-  } else if (Object.keys(props.profile.profile).length > 0) {
+  } else if (
+    props.profile.profile &&
+    Object.keys(props.profile.profile).length > 0
+  ) {
     dashboardContent = (
       <React.Fragment>
         欢迎{" "}

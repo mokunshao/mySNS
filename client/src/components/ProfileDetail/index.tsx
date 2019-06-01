@@ -54,14 +54,16 @@ export default function ProfileDetail(props: Props) {
         <div>
           <h3>经验</h3>
           <ul>
-            {props.data.experience.length ? experienceItems : <p>meiyou</p>}
+            {props.data.experience.length ? experienceItems : <li>无</li>}
           </ul>
         </div>
       </div>
       <div className={styles.part}>
         <div>
           <h3>教育</h3>
-          <ul>{educationItems}</ul>
+          <ul>
+            {props.data.education.length ? educationItems : <li>无</li>}
+          </ul>
         </div>
       </div>
     </div>
