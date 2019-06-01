@@ -9,7 +9,7 @@ import axios from "axios";
 
 export const addPost = (postData: any) => (dispatch: Function) => {
   axios
-    .post("/api/post", postData)
+    .post("/api/posts", postData)
     .then(res => {
       dispatch({
         type: ADD_POST,
@@ -26,4 +26,28 @@ export const addPost = (postData: any) => (dispatch: Function) => {
         payload: err.response.data
       });
     });
+};
+
+export const getPosts = () => (dispatch: Function) => {
+  dispatch(setPostLoading());
+  axios
+    .get("/api/posts")
+    .then(res => {
+      dispatch({
+        type: GET_POSTS,
+        payload: res.data
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: GET_POSTS,
+        payload: []
+      });
+    });
+};
+
+export const setPostLoading = () => {
+  return {
+    type: POST_LOADDING
+  };
 };

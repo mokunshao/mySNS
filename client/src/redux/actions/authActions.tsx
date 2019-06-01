@@ -19,7 +19,7 @@ export const registerUser = (formData: RegisterData, history: any) => (
   dispatch: Function
 ) => {
   axios
-    .post("/api/user/register", formData)
+    .post("/api/users/register", formData)
     .then(() => {
       history.push("/login");
       dispatch({
@@ -41,7 +41,7 @@ export const registerUser = (formData: RegisterData, history: any) => (
 
 export const loginUser = (formData: LoginData) => (dispatch: Function) => {
   axios
-    .post("/api/user/login", formData)
+    .post("/api/users/login", formData)
     .then(res => {
       const { token } = res.data;
       localStorage.setItem("msToken", token);
