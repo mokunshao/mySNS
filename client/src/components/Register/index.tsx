@@ -1,4 +1,4 @@
-import React, { useState, SetStateAction, useEffect } from "react";
+import React, { useState, SetStateAction, useEffect, ChangeEvent } from "react";
 import styles from "./styles.module.scss";
 import { connect } from "react-redux";
 import { registerUser, resetErrors } from "../../redux/actions/authActions";
@@ -26,13 +26,8 @@ function Register(props: Props): React.ReactElement {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  interface Iinput {
-    target: {
-      name: String;
-      value: SetStateAction<string>;
-    };
-  }
-  function handleChange(e: React.ChangeEvent & Iinput): void {
+
+  function handleChange(e: ChangeEvent<HTMLInputElement>): void {
     switch (e.target.name) {
       case "username":
         setUsername(e.target.value);

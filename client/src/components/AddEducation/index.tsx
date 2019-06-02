@@ -1,4 +1,4 @@
-import React, { useState, FormEvent, useEffect } from "react";
+import React, { useState, FormEvent, useEffect, ChangeEvent } from "react";
 import { connect } from "react-redux";
 import styles from "./styles.module.scss";
 import TextFieldGroup from "../TextFieldGroup";
@@ -11,13 +11,6 @@ interface Props {
   errors: any;
   addEducation: Function;
   resetErrors: Function;
-}
-
-interface E {
-  target: {
-    name: string;
-    value: string;
-  };
 }
 
 function AddEducation(props: Props) {
@@ -44,7 +37,7 @@ function AddEducation(props: Props) {
     console.log(experienceData);
     props.addEducation(experienceData, props.history);
   }
-  function handleChange(e: E) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     switch (e.target.name) {
       case "school":
         setSchool(e.target.value);

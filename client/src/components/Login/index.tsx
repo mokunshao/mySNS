@@ -4,13 +4,6 @@ import { loginUser, resetErrors } from "../../redux/actions/authActions";
 import { connect } from "react-redux";
 import TextFieldGroup from "../TextFieldGroup";
 
-interface Iinput {
-  target: {
-    name: String;
-    value: SetStateAction<string>;
-  };
-}
-
 interface Errors {
   email: string;
   password: string;
@@ -19,7 +12,6 @@ interface Errors {
 interface Props {
   errors: Errors;
   loginUser: Function;
-  dispatch: Function;
   resetErrors: Function;
   auth: any;
   history: { push: Function };
@@ -34,7 +26,7 @@ function Login(props: Props): React.ReactElement {
   }, [props.auth.isAuthenticated]);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  function handleChange(e: React.ChangeEvent & Iinput): void {
+  function handleChange(e: React.ChangeEvent<HTMLInputElement>): void {
     switch (e.target.name) {
       case "email":
         setEmail(e.target.value);

@@ -26,10 +26,6 @@ export const registerUser = (formData: RegisterData, history: any) => (
         type: GET_ERRORS,
         payload: {}
       });
-      dispatch({
-        type: GET_ERRORS,
-        payload: {}
-      });
     })
     .catch(err => {
       dispatch({

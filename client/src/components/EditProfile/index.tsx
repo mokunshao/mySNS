@@ -1,4 +1,4 @@
-import React, { FormEvent, useState, useEffect } from "react";
+import React, { FormEvent, useState, useEffect, ChangeEvent } from "react";
 import TextAreaFieldGroup from "../TextAreaFieldGroup";
 import TextFieldGroup from "../TextFieldGroup";
 import SelectListGroup from "../SelectListGroup";
@@ -10,13 +10,6 @@ import {
   getCurrentProfile
 } from "../../redux/actions/profileActions";
 import { resetErrors } from "../../redux/actions/authActions";
-
-interface Input {
-  target: {
-    name: string;
-    value: string;
-  };
-}
 
 const options = [
   { label: "* 请选择您的职业", value: "* 请选择您的职业" },
@@ -120,7 +113,7 @@ function EditProfile(props: Props) {
     };
     props.createProfile(profileData, props.history);
   }
-  function handleChange(e: FormEvent & Input) {
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
     switch (e.target.name) {
       case "handle":
         setHandle(e.target.value);
