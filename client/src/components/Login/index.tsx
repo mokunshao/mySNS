@@ -4,13 +4,8 @@ import { loginUser, resetErrors } from "../../redux/actions/authActions";
 import { connect } from "react-redux";
 import TextFieldGroup from "../TextFieldGroup";
 
-interface Errors {
-  email: string;
-  password: string;
-}
-
 interface Props {
-  errors: Errors;
+  errors: any;
   loginUser: Function;
   resetErrors: Function;
   auth: any;
@@ -54,7 +49,7 @@ function Login(props: Props): React.ReactElement {
           onChange={handleChange}
           type="email"
           placeholder="邮箱"
-          error={props.errors.email}
+          error={props.errors.loginEmail}
         />
         <TextFieldGroup
           name={"password"}
@@ -62,7 +57,7 @@ function Login(props: Props): React.ReactElement {
           onChange={handleChange}
           type="password"
           placeholder="密码"
-          error={props.errors.password}
+          error={props.errors.loginPassword}
         />
         <button onSubmit={handleSubmit}>登录</button>
       </form>

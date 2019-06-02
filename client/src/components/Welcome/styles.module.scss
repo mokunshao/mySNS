@@ -1,0 +1,144 @@
+.Welcome {
+  .mobile {
+    width: 631px;
+    text-align: center;
+    position: relative;
+    .mobileHeader {
+      margin-top: 30px;
+      margin-bottom: 8px;
+      font-size: 22px;
+      line-height: 26px;
+      font-weight: 700;
+      -webkit-font-smoothing: antialiased;
+    }
+    .mobileInfo {
+      font-size: 14px;
+      color: #626d7a;
+      line-height: 20px;
+    }
+    .mobilePromote {
+      padding-top: 32px;
+      .android {
+        color: #2a5885;
+        line-height: 16px;
+        font-size: 13px;
+        display: inline-block;
+        background-image: url("./android.png");
+        background-repeat: no-repeat;
+        background-position-x: 0px;
+        background-position-y: 8px;
+        padding-top: 395px;
+        width: 180px;
+        span {
+          display: inline-block;
+          margin-top: 16px;
+          padding: 7px 16px 8px;
+          cursor: pointer;
+          &:hover {
+            background-color: #e1e5eb;
+          }
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2216%22%20height%3D%2216%22%20rx%3D%22.533%22%2F%3E%3Cpath%20fill%3D%22%235181B8%22%20d%3D%22M6%2012v1.495c0%20.279.232.505.5.505.276%200%20.5-.214.5-.505V12h2v1.495c0%20.279.232.505.5.505.276%200%20.5-.214.5-.505V12h1a1%201%200%200%200%201-.99V6H4v5.01c0%20.546.444.99%201%20.99h1zM2.5%206c-.276%200-.5.215-.5.49v3.02a.5.5%200%200%200%20.5.49c.276%200%20.5-.215.5-.49V6.49A.5.5%200%200%200%202.5%206zm7.144-3.778C11.918%202.916%2012%205%2012%205H4s.082-2.084%202.356-2.778l-.32-.688a.375.375%200%200%201%20.679-.317l.393.842C7.38%202.02%207.678%202%208%202c.323%200%20.62.02.892.059l.393-.842a.375.375%200%200%201%20.68.317l-.321.688zM13.5%206a.5.5%200%200%201%20.5.49v3.02c0%20.275-.224.49-.5.49a.5.5%200%200%201-.5-.49V6.49c0-.275.224-.49.5-.49zm-7-2c.268%200%20.5-.224.5-.5%200-.268-.224-.5-.5-.5-.268%200-.5.224-.5.5%200%20.268.224.5.5.5zm3%200c.268%200%20.5-.224.5-.5%200-.268-.224-.5-.5-.5-.268%200-.5.224-.5.5%200%20.268.224.5.5.5z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+            margin-right: 4px;
+            margin-left: -4px;
+            vertical-align: top;
+            position: relative;
+            bottom: -1px;
+          }
+        }
+      }
+      .iphone {
+        color: #2a5885;
+        line-height: 16px;
+        font-size: 13px;
+        display: inline-block;
+        background-image: url("./iphone.png");
+        background-repeat: no-repeat;
+        padding-top: 395px;
+        width: 198px;
+        margin-left: -31px;
+        span {
+          display: inline-block;
+          margin-top: 16px;
+          padding: 7px 16px 8px;
+          cursor: pointer;
+          border-radius: 4px;
+          &:hover {
+            background-color: #e1e5eb;
+          }
+          &::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Crect%20width%3D%2216%22%20height%3D%2216%22%20rx%3D%22.533%22%2F%3E%3Cpath%20fill%3D%22%235181B8%22%20d%3D%22M11.761%207.085c-.017-1.689%201.381-2.499%201.444-2.54-.786-1.145-2.01-1.302-2.446-1.32-1.04-.105-2.031.611-2.56.611-.527%200-1.343-.596-2.206-.58-1.135.017-2.182.658-2.766%201.671-1.18%202.04-.302%205.063.847%206.718.562.81%201.231%201.72%202.11%201.687.847-.033%201.168-.546%202.191-.546%201.024%200%201.312.546%202.208.53.911-.017%201.489-.826%202.046-1.638.645-.94.91-1.85.927-1.896-.02-.01-1.777-.68-1.795-2.697zm-1.684-4.956c.467-.564.782-1.348.696-2.129-.672.027-1.487.446-1.97%201.01-.432.5-.811%201.297-.71%202.063.751.058%201.517-.38%201.984-.944z%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E");
+            margin-right: 4px;
+            margin-left: -4px;
+            vertical-align: top;
+            position: relative;
+            bottom: -1px;
+          }
+        }
+      }
+    }
+  }
+  .right {
+    float: right;
+    .login {
+      border-radius: 4px;
+      box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+      background: white;
+      width: 270px;
+      padding: 25px;
+      button {
+        background-color: #5b88bd;
+        width: 100%;
+        padding: 7px 16px;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          background: darken($color: #5b88bd, $amount: 5%);
+        }
+      }
+    }
+    .register {
+      border-radius: 4px;
+      box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+      margin-top: 30px;
+      background: white;
+      width: 270px;
+      padding: 25px;
+      h2 {
+        margin: 0;
+        text-align: center;
+        font-size: 20px;
+        font-weight: 500;
+        -webkit-font-smoothing: subpixel-antialiased;
+        & + div {
+          padding: 5px 0 21px;
+          text-align: center;
+          color: #656565;
+          font-size: 12.5px;
+        }
+      }
+      button {
+        background-color: #68b35d;
+        width: 100%;
+        padding: 7px 16px;
+        border: none;
+        border-radius: 3px;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          background: darken($color: #68b35d, $amount: 5%);
+        }
+      }
+    }
+  }
+}

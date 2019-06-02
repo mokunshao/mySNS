@@ -4,16 +4,9 @@ import { connect } from "react-redux";
 import { registerUser, resetErrors } from "../../redux/actions/authActions";
 import TextFieldGroup from "../TextFieldGroup";
 
-interface Errors {
-  username: "";
-  email: "";
-  password: "";
-  password2: "";
-}
-
 interface Props {
   registerUser: Function;
-  errors: Errors;
+  errors: any;
   history: Object;
   resetErrors: Function;
 }
@@ -71,7 +64,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="email"
           placeholder="邮箱"
-          error={props.errors.email}
+          error={props.errors.registerEmail}
         />
         <TextFieldGroup
           name={"password"}
@@ -79,7 +72,7 @@ function Register(props: Props): React.ReactElement {
           onChange={handleChange}
           type="password"
           placeholder="密码"
-          error={props.errors.password}
+          error={props.errors.registerPassword}
         />
         <TextFieldGroup
           name={"password2"}
