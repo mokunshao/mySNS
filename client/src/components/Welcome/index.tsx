@@ -97,7 +97,7 @@ function Welcome(props: Props) {
           </form>
         </div>
         <div className={styles.register}>
-          <h2>第一次用mySNS?</h2>
+          <h2>第一次用 mySNS?</h2>
           <div>快速注册</div>
           <form onSubmit={handleRegister}>
             <TextFieldGroup
@@ -137,13 +137,13 @@ function Welcome(props: Props) {
         </div>
       </div>
       <div className={styles.mobile}>
-        <div className={styles.mobileHeader}>mySNS手机客户端</div>
+        <div className={styles.mobileHeader}>mySNS 手机客户端</div>
         <div className={styles.mobileInfo}>
           安装 mySNS 手机客户端，随时随地和您的好友保持联络。
         </div>
         <div className={styles.mobilePromote}>
-          <div className={styles.android}><span>Android客户端</span></div>
-          <div className={styles.iphone}><span>iPhone客户端</span></div>
+          <div className={styles.android}><span>Android 客户端</span></div>
+          <div className={styles.iphone}><span>iPhone 客户端</span></div>
         </div>
       </div>
     </div>
